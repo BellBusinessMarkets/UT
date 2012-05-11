@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Classes | _UT by Bell Business Markets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	<style>
+		.navbar-fixed-top .brand {
+			color: white;
+			float:left;
+		}
+		table section {
+			padding-top:0px;
+		}
+		section#extend {
+			padding-top:0px;
+		}
+	</style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+	
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+
+  <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./index.html">_UT</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+			
+			  <li class="dropdown">
+				<a href="./index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+				  <li><a href="./index.html#about">About</a></li>
+				  <li><a href="./index.html#">Getting Started</a></li>
+				</ul>
+			  </li>
+			  
+              <li class="">
+                <a href="./core.html">Core</a>
+              </li>
+			  
+			  <li class="dropdown">
+				<a href="./classes.html" class="dropdown-toggle" data-toggle="dropdown">Classes <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="./classes.html">Main</a></li>
+				  	<li><a href="./classes.html#exception">_UT.Exception</a></li>
+				  	<li><a href="./classes.html#adapter">_UT.Adapter</a></li>
+				  	<li><a href="./classes.html#container">_UT.Container</a></li>
+				</ul>
+			  </li>
+			  
+			  <li class="dropdown">
+				<a href="./classes.html" class="dropdown-toggle" data-toggle="dropdown">Adapters <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="./adapters.html">Main</a></li>
+				  	<li><a href="./adapters.html#howto">How to Create an Adapter</a></li>
+				  	<li><a href="./adapters.html#ga">_UT.gaAdapter</a></li>
+				  	<li><a href="./adapters.html#omni">_UT.omniAdapter</a></li>
+				</ul>
+           	  </li>
+
+              <li class="">
+                <a href="./example.html">Example</a>
+              </li>	
+			  
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <h1>_UT Adapters</h1>
+        <p class="lead">Tutorial on creating Adapters and information on Adapters included.</p>
+        <div class="subnav">
+          <ul class="nav nav-pills">
+			<li><a href="#howto">How To Create An Adapter</a></li>
+			<li><a href="#ga">gaAdapter</a></li>
+			<li><a href="#omni">omniAdapter</a></li>
+          </ul>
+        </div>
+      </header>
+
+
+      <!-- Exception
+      ================================================== -->
+      <section id="howto">
+        <div class="page-header">
+          <h1>How To <small>Create an Adapter</small></h1>
+        </div>
+      <div class="row">
+        <div class="span12">
+            <p>Can't find an Adapter for your Service of choice? Not happy with the existing ones ? Good news ! Creating an Adapter is not that hard ! </p>
+			<p>The _UT Adapter for your service serves two functions:</p>
+			<ol>
+				<li>Enables you to hook up a new Service to the _UT infrastructure</li>
+				<li>Enables you to create an abstraction layer for the Service to simplify the deployment and coding required</li>
+			</ol>
+			<div class="alert alert-info"><strong>To Simplify: </strong> we will be creating a new Adapter for a brand new Analytics Provider called <strong>xyz</strong>.</div>
+
+			<h2>Skeleton</h2>
+			<p>First things first, we need to name our Adapter. This name will be be used as the <code>type</code> property in our Adapter <code>settings</code> parameter. Let's name our adapter <strong>xyz</strong> (very orginal, I know !).</p>
+			<p>Now we need to prepend our Adapter name to the word <code>Adapter</code> when defining our new Adapter class. This new class must extend the <code>_UT.Adapter</code> Interface</p>
+			<p>We therefore create a new file called <strong>xyzAdapter.js</strong></p>
+			<pre class="prettyprint">			
+// creating global exception handler //==> good practice to capture errors
+_UT.exceptionHandler = _UT.exceptionHandler || new _UT.Exception();
+
+/**
+ * UT xyz Adapter.
+ * @extends _UT.Adapter
+ */
+_UT.xyzAdapter = _UT.Adapter.extend({
+
+
+	// Adapter Code will go here
+
+
+}); // end extend
+			</pre>
+			
+			<h2>Mandatory Properties</h2>
+			
+			<p>Now that we have our skeleton for the xyzAdapter Class, we need to implement mandatory properties and methods. The list of these properties and descriptions is found in the table below:</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Description & Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+				<code>init</code>
+			</td>
+            <td>
+                <p>Constructor method for Adapter Object. Requires 3 parameters: <code>settings</code>,<code>processor</code> and <code>map</code> as described in _UT.Adapter.init</p>
+				<p>To correctly enable the functionality of the <code>_UT.Adapter</code> Class, it is necessary to call the parent's init method using the reserved keyword <code>_super</code></p>
+				<pre class="prettyprint">
+this._super(settings, processor, map);
+				</pre>
+				<p>After this step, the settings object can be used to correctly configure the xyz solution and create helper methods and values.Ex:</p>
+				<pre class="prettyprint">
+// Load xyz Library
+if(typeof _xyz == "undefined")
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.xyz-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+
+_xyz.setAccount(settings.account);
+_xyz.setInternalSearchQueryParameter(settings.internal_search_qp);
+_xyz.setCampaignQueryParameter(settings.campaign_qp);
+
+// always return true
+return true;
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>fire</code>
+			</td>
+            <td>
+                <p>The fire takes care of calling the solutions pre-built tracking function. Requires 1 parameter: <code>vars</code> as described in _UT.Adapter.fire</p>
+				<p>To correctly enable the functionality of the <code>_UT.Adapter</code> Class, it is necessary to call the parent's init method using the reserved keyword <code>_super</code>. This will take the <code>vars</code> object, clean it , pass it through the processor and map functions in order to prepare the Solution object for firing.</p>
+				<pre class="prettyprint">
+this._super(vars);
+				</pre>
+				<p>After this step, the solutions javascript object is ready to be fired which will send the data to the servers. To effectively trigger the beacons, we need to call the solutions fire beacon function. Ex:</p>
+				<pre class="prettyprint">
+_xyz.trackPageview(); // firing xyz beacon
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>info</code>
+			</td>
+            <td>
+                <p>This property is not mandatory but useful in keeping track of Adapter versions.</p>
+				<p>The <code>info</code> Object should contain 3 properties:</p>
+				<ul>
+					<li><code>version</code> Version of the Adapter.</li>
+					<li><code>date</code> Date of last update</li>
+					<li><code>author</code> Author of Adapter</li>
+				</ul>
+				<pre class="prettyprint">
+version: "1.2",
+date:    "2012-05-12",
+author: "DD"
+				</pre>
+            </td>
+          </tr> 
+		 
+		 </tbody>
+		 </table>
+		 
+			<h2>Optional Properties</h2>
+			
+			<p>Our <code>xyzAdapter</code> is now ready to be used. However, since in the <code>map</code> functions we will need access to the <code>_xyz</code> object in its native (and maybe complex) form, we can create some more methods to simplify the interactions with that Object.</p>
+			<p>Here are examples of methods simplifying interactions with the (hypothetical)<code>_xyz</code>.</p>
+				<pre class="prettyprint">
+purchaseProduct: function(products) {
+	for(var i= 0; i&lt;products.length;i++) {
+		var prod = products[i];
+		_xyz.addProduct(prod.name, prod.quantity, prod.price);
+	}
+	_xyz.sendProducts('purchase');
+}
+				</pre>	
+				
+				<h2>Final xyzAdapter Code</h2>		
+				
+				<p>Finally, our code is complete. When we put all this together, here is the result:</p>
+				<pre class="prettyprint">
+_UT.exceptionHandler = _UT.exceptionHandler || new _UT.Exception();
+
+/**
+ * UT xyz Adapter.
+ * @extends _UT.Adapter
+ */
+_UT.xyzAdapter = _UT.Adapter.extend({
+
+    // Adapter info
+    info: {
+        version: "1.1.1",
+        date:    "2012-03-12",
+        author: "DD"
+    },  
+    
+    /**
+     * XYZ Adapter
+     * @constructor
+     */
+    init: function (settings, processor, map) {
+        try {
+
+            // Load xyz Library
+            if(typeof _xyz == "undefined")
+                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.xyz-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+            
+            _xyz.setAccount(settings.account);
+            _xyz.setInternalSearchQueryParameter(settings.internal_search_qp);
+            _xyz.setCampaignQueryParameter(settings.campaign_qp);
+
+            // always return true
+            return true;
+        } catch (e) {
+            _UT.exceptionHandler.push(e);
+        }
+    },
+
+    /**
+     * method to fire beacon for XYZ
+     */
+    fire: function (vars) {
+
+        // calling the UT Adapter function to clean up
+        this._super(vars);
+        
+        _xyz.trackPageview(); // firing xyz beacon
+        
+    },
+
+    /**
+     * method to send purchase info to XYZ 
+     */    
+    purchaseProduct: function(products) {
+        for(var i= 0; i&lt;products.length;i++) {
+            var prod = products[i];
+            _xyz.addProduct(prod.name, prod.quantity, prod.price);
+        }
+        _xyz.sendProducts('purchase');
+    }
+
+}); // end extend
+				</pre>	
+		 
+        </div>
+	  </div>
+    </section>
+
+
+
+      <!-- Adapter
+      ================================================== -->
+      <section id="ga">
+        <div class="page-header">
+          <h1>gaAdapter <small>Using the Google Analytics Adapter</small></h1>
+        </div>
+      <div class="row">
+        <div class="span12">
+            <p>Following the previous instructions, an Adapter was created for Google Analytics type-named "ga".</p>
+			<p>In order to use the <code>gaAdapter</code> Class, we simply need to instantiate a new object and then call the <code>fire</code> function with our specific variables</p>
+			<pre class="prettyprint">
+// Create Adapter Instance
+_ut_ga = new _UT.gaAdapter(GA_SETTINGS, GA_MAP, GA_PROCESSOR);
+
+// Fire Adapter beacon
+_ut_ga.fire({
+    __usePrevious: false,
+    __useWindow: true
+});
+</pre>
+		<p>Evidently <code>GA_SETTINGS</code>, <code>GA_MAP</code> amd <code>GA_PROCESSOR</code> need to be defined already</p>
+		<p>Lets first build the <code>GA_SETTINGS</code> object. In addition to the mandatory properties of the <code>settings</code> object as described in <code>_UT.Adapter.settings</code>, the Google Analytics <code>settings</code> objects requires many specific properties to work as expected:</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Description & Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+				<code>id</code>
+			</td>
+            <td>
+				<p>The <code>id</code> will also be used to create the instance globally in Container</p>
+				<pre class="prettyprint">
+id: "_ut_ga", // same value as variable name _ut_ga
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>type</code>
+			</td>
+            <td>
+				<p>This property is only mandatory when using a _UT.Container. Shoudl be set to <code>"ga</code>"</p>
+				<pre class="prettyprint">
+type: "ga",
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>info</code>
+			</td>
+            <td>
+				<p>This property is not mandatory but useful in keeping track of Settings versions.</p>
+				<pre class="prettyprint">
+{
+date:    "2012-05-12",
+author: "DD"
+}, 
+				</pre>
+            </td>
+          </tr> 
+		  
+          <tr>
+            <td>
+				<code>args</code>
+			</td>
+            <td>
+				<p>Object of properties representing all arguments that will be attached to the <code>data</code> object. Each property is a two item Array where the FIRST item is default value and the SECOND is a list of accepted variable names.</p>
+				<pre class="prettyprint">
+args: {
+   sPN: ["no_pagename", ["s_pageName", "sPN"]],
+   sPath: ["", ["s_path"]]
+},
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>prod_account</code>
+			</td>
+            <td>
+				<p></p>
+				<pre class="prettyprint">
+
+				</pre>
+            </td>
+          </tr> 
+
+		 
+		 </tbody>
+		 </table>
+  
+        </div>
+	  </div>
+    </section>
+	
+      <!-- Container
+      ================================================== -->
+      <section id="omni">
+        <div class="page-header">
+          <h1>Container <small>Class to simplify mangement of Adapter Instances</small></h1>
+        </div>
+      <div class="row">
+        <div class="span12">
+
+
+		 </table>
+        </div>
+	  </div>
+    </section>
+
+ 
+
+     <!-- Footer
+      ================================================== -->
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Built at <a href="http://github.com/BellBusinessMarkets" target="_blank">Bell Business Markets</a> by <a href="hhttps://github.com/ddallala" target="_blank">@ddallala</a>. Maintained by the community via <a href="https://github.com">GitHub</a>.</p>
+        <p>Code licensed under the <a href="http://www.gnu.org/licenses/lgpl.txt" target="_blank">LGPLG v3</a>. Documentation of the license found at <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a>.</p>
+        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+		<p>Since I did not want to spend too much time on designing, this Documentation is completely "inspired" by <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap by Twitter</a></p>
+      </footer>
+
+    </div><!-- /container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/application.js"></script>
+	
+	
+	<!-- _UT javascript -->
+	 <script src="assets/js/UT/_UT.js"></script>
+	 <script src="assets/js/UT/gaAdapter.js"></script>
+	 <script src="assets/js/UT/settings/_UT.extensions.js"></script>
+	 <script src="assets/js/UT/settings/common.js"></script>
+	 <script src="assets/js/UT/settings/gaSettings.js"></script>
+	 <script src="assets/js/UT/settings/container.js"></script>
+	 
+	 <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
+	 
+  </body>
+</html>

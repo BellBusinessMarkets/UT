@@ -1,84 +1,214 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Ut : Univeral Tag Javascript Library for complex Digital Marketing implementations" />
+    <meta charset="utf-8">
+    <title>_UT by Bell Business Markets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	<style>
+		.navbar-fixed-top .brand {
+			color: white;
+			float:left;
+		}
+	</style>
 
-    <title>Ut</title>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/BellBusinessMarkets/UT">Fork Me on GitHub</a>
 
-          <h1 id="project_title">Ut</h1>
-          <h2 id="project_tagline">Univeral Tag Javascript Library for complex Digital Marketing implementations</h2>
+  <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./index.html">_UT</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+			
+			  <li class="dropdown">
+				<a href="./index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+				  <li><a href="#about">About</a></li>
+				  <li><a href="#">Getting Started</a></li>
+				</ul>
+			  </li>
+			  
+              <li class="">
+                <a href="./core.html">Core</a>
+              </li>
 
-          <section id="downloads">
-            <a class="zip_download_link" href="https://github.com/BellBusinessMarkets/UT/zipball/master">Download this project as a .zip file</a>
-            <a class="tar_download_link" href="https://github.com/BellBusinessMarkets/UT/tarball/master">Download this project as a tar.gz file</a>
-          </section>
-        </header>
+			  <li class="dropdown">
+				<a href="./classes.html" class="dropdown-toggle" data-toggle="dropdown">Classes <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="./classes.html">Main</a></li>
+				  	<li><a href="./classes.html#exception">_UT.Exception</a></li>
+				  	<li><a href="./classes.html#adapter">_UT.Adapter</a></li>
+				  	<li><a href="./classes.html#container">_UT.Container</a></li>
+				</ul>
+           	  </li>
+			  
+			  <li class="dropdown">
+				<a href="./classes.html" class="dropdown-toggle" data-toggle="dropdown">Adapters <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="./adapters.html">Main</a></li>
+				  	<li><a href="./adapters.html#howto">How to Create an Adapter</a></li>
+				  	<li><a href="./adapters.html#ga">_UT.gaAdapter</a></li>
+				  	<li><a href="./adapters.html#omni">_UT.omniAdapter</a></li>
+				</ul>
+           	  </li>
+
+              <li class="">
+                <a href="./example.html">Example</a>
+              </li>
+			  
+		   </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+    <div class="container">
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<!-- Masthead
+================================================== -->
+<header class="jumbotron masthead">
+  <div class="inner">
+    <h1>_UT.js</h1>
+	<p>Univeral Tag Javascript Library for complex Digital Marketing implementations</p>
+    <p class="download-info">
+      <a href="https://github.com/BellBusinessMarkets/UT" class="btn btn-primary btn-large">View project on GitHub</a>
+      <a href="https://github.com/BellBusinessMarkets/UT/zipball/master" class="btn btn-large">Download _UT <small>(v1.0)</small></a>
+    </p>
+  </div>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+  <div class="bs-links">
+    <ul class="quick-links">
+      <li>
+        <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=BellBusinessMarkets&repo=UT&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+      </li>
+      <li>
+        <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=BellBusinessMarkets&repo=UT&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+      </li>
+      <li class="tweet-btn">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bellbusinessmarkets.github.com/UT/" data-text="_UT - Analytics Library by @BellBusinessMarkets">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </li>
+    </ul>
+  </div>
+</header>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<hr class="soften">
 
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+<!-- _UT About
+================================================== -->
+<section id="about">
+  <div class="page-header">
+    <h1>About <small>Brief history, browser support, and more</small></h1>
+  </div>
+  <div class="row">
+    <div class="span4">
+      <h3>History</h3>
+      <p>The _UT library was born out of the need to meet complex web analytics requirements.</p>
+      <p>While working primarily with Omniture Sitecatalyst, a JavaScript script file was necessary to handle the business logic. However, as the requirements became increasingly complex, someitmes involving multiple solutions, it became evident that the javsacript should be refactored into a library to manage the implementation. Thus was born the _UT library.</p>
     </div>
+    <div class="span4">
+      <h3>Browser support</h3>
+      <p>_UT is tested and supported in major modern browsers like Chrome, Safari, Internet Explorer, and Firefox. Although more testing is required.</p>
+      <ul>
+        <li>Latest Safari</li>
+        <li>Latest Google Chrome</li>
+        <li>Firefox 4+</li>
+        <li>Internet Explorer 7+</li>
+        <li>Opera 11</li>
+      </ul>
+    </div>
+    <div class="span4">
+      <h3>What's included</h3>
+      <p>_UT comes complete with:</p>
+      <ul>
+        <li>_UT library Source</li>
+        <li>TWO Adapter Examples:
+			<ul>
+				<li>Omniture Adapter</li>
+				<li>Google Analytics Adapter</li>
+			</ul>
+		</li>
+        <li>Complete documentation</li>
+        <li>One example pages of complex tracking</li>
+      </ul>
+    </div>
+  </div><!-- /row -->
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Ut maintained by <a href="https://github.com/BellBusinessMarkets">BellBusinessMarkets</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+</section>
+
+
+
+     <!-- Footer
+      ================================================== -->
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Built at <a href="http://github.com/BellBusinessMarkets" target="_blank">Bell Business Markets</a> by <a href="hhttps://github.com/ddallala" target="_blank">@ddallala</a>. Maintained by the community via <a href="https://github.com">GitHub</a>.</p>
+        <p>Code licensed under the <a href="http://www.gnu.org/licenses/lgpl.txt" target="_blank">LGPLG v3</a>. Documentation of the license found at <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a>.</p>
+        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+		<p>Since I did not want to spend too much time on designing, this Documentation is completely "inspired" by <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap by Twitter</a></p>
       </footer>
-    </div>
 
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-31166244-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+    </div><!-- /container -->
 
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/application.js"></script>
+
+
+	<!-- _UT javascript -->
+	 <script src="assets/js/UT/_UT.js"></script>
+	 <script src="assets/js/UT/gaAdapter.js"></script>
+	 <script src="assets/js/UT/settings/_UT.extensions.js"></script>
+	 <script src="assets/js/UT/settings/common.js"></script>
+	 <script src="assets/js/UT/settings/gaSettings.js"></script>
+	 <script src="assets/js/UT/settings/container.js"></script>
 
   </body>
 </html>

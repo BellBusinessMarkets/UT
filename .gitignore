@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+Icon?
+*.swp
+*.swo
+*~
+*.zip
+_site
+dist/
