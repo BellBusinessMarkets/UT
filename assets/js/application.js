@@ -5,6 +5,15 @@
 !function ($) {
 
   $(function(){
+			 
+    /* lBell */
+/*    $('#lBell').hover(function () {
+		$('#lBellH').fadeIn(200);
+    });
+
+    $('#lBellH').mouseleave(function () {
+        $(this).fadeOut(400);
+    });*/
 
     // Disable certain links in docs
     $('section [href^=#]').click(function (e) {

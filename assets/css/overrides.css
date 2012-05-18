@@ -1,0 +1,30 @@
+		.navbar-fixed-top .brand {
+			color: white;
+			float:left;
+		}
+		.footer {
+		  background-color: rgb(238, 238, 235);
+		  padding-left:20px;
+		  padding-right:20px;
+		}
+		#lBell {
+			position: relative;
+			display: block;
+			width: 70px;
+			height: 44px;
+			margin-top: 25px;
+			background: url("../img/bg_logos.png") no-repeat left bottom;
+			text-indent: -999em;
+		}
+/*		#lBellH {
+			position: absolute;
+			display: none;
+			top: 46px;
+			left: -1px;
+			width: 70px;
+			height: 44px;
+			background: url("../img/bg_logos.png") no-repeat scroll
+			right bottom transparent;
+			text-indent: -999em;
+			z-index: 10;
+		}	*/
