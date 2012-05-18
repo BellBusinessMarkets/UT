@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example | _UT by Bell Business Markets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	<style>
+		.navbar-fixed-top .brand {
+			color: white;
+			float:left;
+		}
+		table section {
+			padding-top:0px;
+		}
+		section#extend {
+			padding-top:0px;
+		}
+	</style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+	
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+
+  <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./index.html">_UT</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+			
+			  <li class="dropdown">
+				<a href="./index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+				  <li><a href="./index.html#about">About</a></li>
+				  <li><a href="./index.html#">Getting Started</a></li>
+				</ul>
+			  </li>
+			  
+              <li class="">
+                <a href="./core.html">Core</a>
+              </li>
+			  
+			  <li class="dropdown">
+				<a href="./classes.html" class="dropdown-toggle" data-toggle="dropdown">Classes <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="./classes.html">Main</a></li>
+				  	<li><a href="./classes.html#exception">_UT.Exception</a></li>
+				  	<li><a href="./classes.html#adapter">_UT.Adapter</a></li>
+				  	<li><a href="./classes.html#container">_UT.Container</a></li>
+				</ul>
+			  </li>
+			  
+			  <li class="dropdown">
+				<a href="./classes.html" class="dropdown-toggle" data-toggle="dropdown">Adapters <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="./adapters.html">Main</a></li>
+				  	<li><a href="./adapters.html#howto">How to Create an Adapter</a></li>
+				  	<li><a href="./adapters.html#ga">_UT.gaAdapter</a></li>
+				  	<li><a href="./adapters.html#omni">_UT.omniAdapter</a></li>
+				</ul>
+           	  </li>
+
+              <li class="">
+                <a href="./example.html">Example</a>
+              </li>	
+			  
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <h1>Example</h1>
+        <p class="lead">Quick Example of how one would use the _UT library and Adapters</p>
+        <div class="subnav">
+          <ul class="nav nav-pills">
+			<li><a href="#index">index.html</a></li>
+			<li><a href="#extensions">_UT.extensions.js</a></li>
+			<li><a href="#common">common.js</a></li>
+			<li><a href="#omni">omniSettings.js</a></li>
+			<li><a href="#ga">gaSetting.js</a></li>
+			<li><a href="#container">container.js</a></li>
+          </ul>
+        </div>
+      </header>
+
+
+      <!-- Example
+      ================================================== -->
+      <section id="example">
+        <div class="page-header">
+          <h1>Javascript <small>Lets create a complex (simple) implementation</small></h1>
+        </div>
+		
+	  <section id="index">
+      <div class="row">
+        <div class="span2">
+			<h3>index.html</h3>
+			<p>Including the relevant javascript files. For the sake of clarity, every logical component will be separated into a specific file</p>
+		</div>
+        <div class="span10">
+			<h4>Example of index.html file</h4>
+			<p>Here is a simple example of an index.html page containing the _UT library and the order in which the plugins should be included.</p>
+			<pre class="prettyprint linenums">
+&lt;html&gt;<br/>&lt;head&gt;<br/><br/>&lt;!--&nbsp;...&nbsp;HEAD&nbsp;CONTENT&nbsp;--&gt;<br/><br/>&lt;/head&gt;<br/>&lt;body&gt;<br/><br/>&lt;!--&nbsp;...&nbsp;BODY&nbsp;CONTENT&nbsp;--&gt;<br/><br/>&nbsp;&nbsp;&lt;!--&nbsp;PAGE&nbsp;VARIABLES&nbsp;--&gt;<br/>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;s_pagename&nbsp;=&nbsp;&quot;home&quot;;<br/>&nbsp;&nbsp;&nbsp;&nbsp;s_display_language&nbsp;=&nbsp;&quot;en&quot;;<br/>&nbsp;&nbsp;&nbsp;&nbsp;s_section&nbsp;=&nbsp;&quot;other&quot;;<br/>&nbsp;&nbsp;&lt;/script&gt;<br/><br/>&nbsp;&nbsp;&lt;!--&nbsp;Including&nbsp;the&nbsp;Main&nbsp;_UT&nbsp;library&nbsp;--&gt;<br/>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;js/_UT.js&quot;&gt;&lt;/script&gt;<br/><br/>&nbsp;&nbsp;&lt;!--&nbsp;Including&nbsp;Adapters&nbsp;for&nbsp;Omniture&nbsp;and&nbsp;Google&nbsp;Analytics&nbsp;--&gt;<br/>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;js/gaAdapter.js&quot;&gt;&lt;/script&gt;<br/>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;js/omniAdapter.js&quot;&gt;&lt;/script&gt;<br/><br/>&nbsp;&nbsp;&lt;!--&nbsp;Including&nbsp;common&nbsp;settings&nbsp;and&nbsp;common&nbsp;Extensions&nbsp;to&nbsp;the&nbsp;UT&nbsp;object&nbsp;--&gt;<br/>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;js/settings/_UT.extensions.js&quot;&gt;&lt;/script&gt;<br/>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;js/settings/common.js&quot;&gt;&lt;/script&gt;<br/><br/>&nbsp;&nbsp;&lt;!--&nbsp;Including&nbsp;the&nbsp;Settings/Business&nbsp;Logic&nbsp;and&nbsp;Mapping&nbsp;for&nbsp;each&nbsp;Adapter&nbsp;Instance&nbsp;---&gt;<br/>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;js/settings/omniSettings.js&quot;&gt;&lt;/script&gt;<br/>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;js/settings/gaSettings.js&quot;&gt;&lt;/script&gt;<br/><br/>&nbsp;&nbsp;&lt;!--&nbsp;Creating&nbsp;a&nbsp;Container&nbsp;to&nbsp;manage&nbsp;the&nbsp;adapters&nbsp;and&nbsp;fire&nbsp;the&nbsp;beacons&nbsp;---&gt;<br/>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;js/settings/container.js&quot;&gt;&lt;/script&gt;<br/><br/>&lt;/body&gt;<br/>&lt;/html&gt;
+        </pre>
+		</div>
+	  </div><!-- end row -->
+	  </section>
+
+
+	  <section id="extensions">
+      <div class="row">
+        <div class="span2">
+			<h3>UT.extensions.js</h3>
+			<p>This file contains _UT Object extensions which will be available globally in the _UT namespace.</p>
+		</div>
+        <div class="span10">
+			<h4>Example of UT.extensions.js file</h4>
+			<p>In this example we are adding the getQueryParam and toLowerCase static functions to the _UT namespace.</p>
+			<pre class="prettyprint linenums">
+//*************************************************<br/>//&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;Non-Core&nbsp;utilities&nbsp;-&nbsp;affects&nbsp;_UT&nbsp;Static&nbsp;Object<br/>//****************************************************<br/>_UT.addExtensions({<br/>&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;getQueryParam:&nbsp;function&nbsp;(name)&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;names_arr&nbsp;=&nbsp;name.split(&quot;,&quot;);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(names_arr.length&nbsp;&gt;&nbsp;1)&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(var&nbsp;i=0;&nbsp;i&lt;names_arr.length;i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((r&nbsp;=&nbsp;_UT.getQueryParam(names_arr[i]))&nbsp;!==&nbsp;&quot;&quot;)&nbsp;return&nbsp;r;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&quot;&quot;;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;name.replace(/[\[]/,&nbsp;&quot;\\\[&quot;).replace(/[\]]/,&nbsp;&quot;\\\]&quot;);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;regexS&nbsp;=&nbsp;&quot;[\\?&amp;]&quot;&nbsp;+&nbsp;name&nbsp;+&nbsp;&quot;=([^&amp;#]*)&quot;;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;regex&nbsp;=&nbsp;new&nbsp;RegExp(regexS);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;results&nbsp;=&nbsp;regex.exec(window.location.href);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(results&nbsp;==&nbsp;null)&nbsp;return&nbsp;&quot;&quot;;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;return&nbsp;decodeURIComponent(results[1].replace(/\+/g,&nbsp;&quot;&nbsp;&quot;));<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;To&nbsp;Lower&nbsp;Case<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;@param&nbsp;object&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;object&nbsp;where&nbsp;each&nbsp;value&nbsp;will&nbsp;be&nbsp;lowerCased<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;@return&nbsp;object<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lowerCase:&nbsp;function(obj)&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_UT.each(obj,&nbsp;function(i,v)&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(typeof&nbsp;v&nbsp;==&nbsp;&quot;string&quot;)&nbsp;obj[i]&nbsp;=&nbsp;v.toLowerCase();<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;obj;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/><br/>});
+        </pre>
+		</div>
+	  </div><!-- end row -->
+	  </section>
+
+
+	  <section id="common">
+      <div class="row">
+        <div class="span2">
+			<h3>common.js</h3>
+			<p>This file contains variables and settings that are shared by all Adapters; the processor is one such Object that is of particular importance if all Adapters will use the same business logic.</p>
+		</div>
+        <div class="span10">
+			<h4>Example of common.js file</h4>
+			<p>Here we are defining some global javascript variables to be used in Adapter settings as well as writing the logic for the processor which will be used by both adapters to parse the data.</p>
+			<pre class="prettyprint linenums">
+//###########################################################################<br/>//&nbsp;COMMON&nbsp;TO&nbsp;ALL&nbsp;SOLUTIONS<br/>//###########################################################################<br/><br/>//&nbsp;DEFAULTS&nbsp;-&nbsp;different&nbsp;for&nbsp;each&nbsp;domain,&nbsp;sub-domain&nbsp;-&nbsp;DONT&nbsp;DELETE&nbsp;ANY&nbsp;VARIABLE&nbsp;HERE<br/>s_dev_urls&nbsp;=&nbsp;&quot;none&quot;;<br/>s_prod_urls&nbsp;=&nbsp;&quot;none&quot;;<br/>s_omni_prod_account&nbsp;=&nbsp;&quot;xxxxxxxx&quot;;<br/>s_omni_dev_account&nbsp;=&nbsp;&quot;xxxxxxxx&quot;;<br/>s_ga_prod_account&nbsp;=&nbsp;&quot;XXXXXXXX-1&quot;;<br/>s_ga_dev_account&nbsp;=&nbsp;&quot;XXXXXXXX-2&quot;;<br/><br/>//&nbsp;DOMAIN&nbsp;SPECIFIC<br/>var&nbsp;s_domain_settings&nbsp;=&nbsp;[<br/>    {<br/>		s_prod_urls:&nbsp;'www.example.com',<br/>		s_dev_urls:&nbsp;'example_dev.com',<br/>		s_omni_prod_account:&nbsp;'xxxxxxxxxx',<br/>		s_omni_dev_account:&nbsp;'yyyyyyyyyyy',<br/>		s_ga_prod_account:&nbsp;'UA-XXXXXX-X',<br/>		s_ga_dev_account:'UA-XXXXXXX-X'<br/>	},{<br/>		s_prod_urls:&nbsp;'www.myotherexample.com',<br/>		s_dev_urls:&nbsp;'www.devexample.com',<br/>		s_omni_prod_account:&nbsp;'xxxxxxxxxx',<br/>		s_omni_dev_account:&nbsp;'yyyyyyyyyyy',<br/>		s_ga_prod_account:&nbsp;'UA-XXXXXX-X',<br/>		s_ga_dev_account:'UA-XXXXXXX-X'<br/>	}<br/>];<br/><br/>//&nbsp;looping&nbsp;through&nbsp;the&nbsp;domain&nbsp;settings<br/>for(var&nbsp;i&nbsp;=0;i&lt;s_domain_settings.length;i++){<br/>	var&nbsp;settings&nbsp;=&nbsp;s_domain_settings[i];<br/>	var&nbsp;base_dev_urls&nbsp;=&nbsp;&quot;localhost&quot;;<br/>	if(&nbsp;s_domainMatches(settings.s_prod_urls)&nbsp;||&nbsp;s_domainMatches(settings.s_dev_urls)){<br/>		<br/>		if(typeof&nbsp;settings.s_dev_urls&nbsp;!=&nbsp;&quot;undefined&quot;)					<br/>			s_dev_urls&nbsp;=&nbsp;base_dev_urls&nbsp;+&nbsp;&quot;,&quot;&nbsp;+&nbsp;settings.s_dev_urls;<br/>		if(typeof&nbsp;settings.s_prod_urls&nbsp;!=&nbsp;&quot;undefined&quot;)					<br/>			s_prod_urls&nbsp;=&nbsp;settings.s_prod_urls;<br/>		<br/>		if(typeof&nbsp;settings.s_omni_prod_account&nbsp;!=&nbsp;&quot;undefined&quot;)			<br/>			s_omni_prod_account&nbsp;=&nbsp;settings.s_omni_prod_account;<br/>		if(typeof&nbsp;settings.s_omni_dev_account&nbsp;!=&nbsp;&quot;undefined&quot;)			<br/>			s_omni_dev_account&nbsp;=&nbsp;settings.s_omni_dev_account;<br/>		<br/>		if(typeof&nbsp;settings.s_ga_prod_account&nbsp;!=&nbsp;&quot;undefined&quot;)			<br/>			s_ga_prod_account&nbsp;=&nbsp;settings.s_ga_prod_account;<br/>		if(typeof&nbsp;settings.s_ga_dev_account&nbsp;!=&nbsp;&quot;undefined&quot;)				<br/>			s_ga_dev_account&nbsp;=&nbsp;settings.s_ga_dev_account;<br/><br/>		break;<br/>	}<br/>	<br/>}<br/><br/>function&nbsp;s_domainMatches(list)&nbsp;{<br/>	var&nbsp;cur_domain&nbsp;=&nbsp;window.location.hostname;<br/>	var&nbsp;domains&nbsp;=&nbsp;list.split(&quot;,&quot;);<br/>	for(var&nbsp;i=0;i&lt;domains.length;i++)&nbsp;{<br/>		if(cur_domain.indexOf(domains[i])&nbsp;!=&nbsp;-1)&nbsp;return&nbsp;true;<br/>	}<br/>	return&nbsp;false;<br/>}<br/><br/><br/><br/><br/>//&nbsp;InPage&nbsp;vars<br/>_ut_ARGS&nbsp;=&nbsp;{<br/>	sL:&nbsp;&nbsp;&nbsp;[&quot;None&quot;,[&quot;sL&quot;,&quot;s_display_language&quot;]],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sPN:&nbsp;[&quot;&quot;,&nbsp;[&quot;s_pagename&quot;,&nbsp;&quot;sPN&quot;]],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sSec:&nbsp;[&quot;No&nbsp;section&quot;,&nbsp;[&quot;s_section&quot;]],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sA:&nbsp;[&quot;&quot;,&nbsp;[&quot;s_action&quot;]],<br/>	<br/>	eof:&quot;eof&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/><br/>//&nbsp;common&nbsp;processor<br/>_ut_PROCESSOR&nbsp;=&nbsp;function&nbsp;(args)&nbsp;{<br/>	var&nbsp;data&nbsp;=&nbsp;this.data;<br/>	var&nbsp;settings&nbsp;=&nbsp;this.settings;<br/><br/>	//***&nbsp;Campaign&nbsp;***		<br/>	data.my_campaign&nbsp;=&nbsp;_UT.getQueryParam(&quot;gcid&quot;);<br/><br/>	//***&nbsp;Language***<br/>	if(args.sA&nbsp;==&nbsp;&quot;fire&nbsp;event&quot;)&nbsp;data.fireEvent&nbsp;=&nbsp;true;<br/><br/>	//***&nbsp;File&nbsp;Info&nbsp;***<br/>	data.JsFileInfo&nbsp;=&nbsp;_UT.sprintf(&quot;_UT[%s:%s:%s]/%s[%s:%s:%s]/settings[%s:%s:%s]&quot;,&nbsp;													<br/>		_UT.info.version,&nbsp;_UT.info.author,&nbsp;_UT.info.date,&nbsp;													&nbsp;<br/>		settings.type,						&nbsp;<br/>		this.info.version,&nbsp;this.info.author,&nbsp;this.info.date,												&nbsp;<br/>		settings.info.version,&nbsp;settings.info.author,&nbsp;settings.info.date);<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;data;<br/>&nbsp;&nbsp;&nbsp;&nbsp;};
+        </pre>
+		</div>
+	  </div><!-- end row -->
+	  </section>
+
+
+	  <section id="omni">
+      <div class="row">
+        <div class="span2">
+			<h3>omniSettings.js</h3>
+			<p>This file contains specific settings for an Instance of an omniAdapter as well as the mapping function to send the parse the data into the <code>s</code> object.</p>
+		</div>
+        <div class="span10">
+			<h4>Example of omniSettings.js file</h4>
+			<p>The first part of this file is used to configure Omniture and its plugins using the <code>omniAdapter</code> whch acts as a abstraction layer simplifying the configuration of omniture and plugins. The second part presents an example of how to transform the data (from the processor) and map it into the <code>s</code> Object.</p>
+			<pre class="prettyprint linenums lang-js">
+//###########################################################################<br/>//&nbsp;OMNITURE<br/>//###########################################################################<br/><br/>//-------------------------------------------------<br/>//&nbsp;SETTINGS&nbsp;-&nbsp;Solution&nbsp;and&nbsp;Library&nbsp;settings<br/>var&nbsp;OMNI_SETTINGS&nbsp;=&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;'_ut_omni',<br/>&nbsp;&nbsp;&nbsp;&nbsp;type:&nbsp;'omni',<br/>    <br/>	//&nbsp;Settings&nbsp;info<br/>	info:&nbsp;{<br/>		version:&nbsp;&quot;1.1&quot;,<br/>		date:	&quot;2011-12-29&quot;,<br/>		author:&nbsp;&quot;DD&quot;<br/>	},<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;/**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constants&nbsp;-&nbsp;default&nbsp;args&nbsp;which&nbsp;will&nbsp;be&nbsp;available&nbsp;in&nbsp;processor&nbsp;and&nbsp;mapping<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;args&nbsp;should&nbsp;be&nbsp;of&nbsp;form:&nbsp;&quot;keyword&quot;&nbsp;:&nbsp;[&nbsp;(string)default_value&nbsp;,&nbsp;(array)keyword_array&nbsp;]<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;args&nbsp;keywords&nbsp;will&nbsp;be&nbsp;available&nbsp;in&nbsp;the&nbsp;args&nbsp;object<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br/>&nbsp;&nbsp;&nbsp;&nbsp;args:&nbsp;_ut_ARGS,<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;/**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Solution&nbsp;Specific&nbsp;settings<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br/>&nbsp;&nbsp;&nbsp;&nbsp;prod_account:&nbsp;s_omni_prod_account,<br/>&nbsp;&nbsp;&nbsp;&nbsp;prod_urls:&nbsp;s_prod_urls,<br/>&nbsp;&nbsp;&nbsp;&nbsp;dev_account:&nbsp;s_omni_dev_account,<br/>&nbsp;&nbsp;&nbsp;&nbsp;dev_urls:&nbsp;s_dev_urls,<br/>	<br/>&nbsp;//&nbsp;&nbsp;	visitorNamespace:&nbsp;&quot;xx_prodaccount_xx&quot;,<br/>//	use_first_party_cookies:&nbsp;{&nbsp;//&nbsp;defaults&nbsp;to&nbsp;false&nbsp;-&nbsp;remove&nbsp;if&nbsp;not&nbsp;using&nbsp;first&nbsp;party&nbsp;cookies<br/>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trackingServer:&nbsp;&quot;xx_trackserver_xx.com&quot;,<br/>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trackingServerSecure:&nbsp;&quot;xx_trackserver_xxs.com&quot;<br/>//&nbsp;&nbsp;&nbsp;&nbsp;}<br/>	<br/>	//&nbsp;linkTracking&nbsp;defaults<br/>	linkTrackEvents:&nbsp;'event47,event48,event49,event50,event51,event52,event53',<br/>	linkTrackVars:&nbsp;'eVar40,prop34,prop35,eVar45,eVar49,eVar51',<br/>	<br/>	//&nbsp;Plugin&nbsp;specific&nbsp;settings<br/>	plugins:&nbsp;{<br/>		//&nbsp;getPageName&nbsp;configs<br/>		getPageName:&nbsp;{<br/>			siteID:&nbsp;s_company&nbsp;+&nbsp;&nbsp;&quot;:unnamed&quot;<br/>		}<br/>	<br/>		//&nbsp;setupFormAnalysis&nbsp;configs<br/>		,setupFormAnalysis:&nbsp;{	//&nbsp;defaults&nbsp;to&nbsp;false<br/>			formList:&nbsp;&quot;&quot;,<br/>			trackFormList:&nbsp;false,&nbsp;//&nbsp;track&nbsp;form&nbsp;list&nbsp;given<br/>			useCommerce:&nbsp;true,<br/>			varUsed:&nbsp;&quot;eVar20&quot;,<br/>			eventList:&nbsp;&quot;event36,event37,event38&quot;&nbsp;//Abandon,Success,Error&nbsp;//&nbsp;onlyIf&nbsp;useCommerce&nbsp;true<br/>		}<br/>		<br/>		//&nbsp;Media&nbsp;Plugin<br/>		,Media:&nbsp;{<br/>			autoTrack:&nbsp;true,<br/>			trackMilestones:&quot;25,50,75,100&quot;,<br/>		//	playerName:&quot;My&nbsp;Media&nbsp;Player&quot;,<br/>			trackWhilePlaying:&nbsp;true,<br/>			trackVars:&nbsp;&quot;None&quot;,&nbsp;//&nbsp;extra&nbsp;vars&nbsp;to&nbsp;send<br/>			trackEvents:&nbsp;&quot;None&quot;,&nbsp;//&nbsp;extra&nbsp;events&nbsp;to&nbsp;send<br/>			monitor:&nbsp;function&nbsp;(s,media){}<br/>			<br/>/*			trackUsingContextData:&nbsp;true,<br/>			contextDataMapping:&nbsp;{<br/>				&quot;a.media.name&quot;:&quot;eVar70,prop70&quot;,<br/>				&quot;a.media.segment&quot;:&quot;eVar71&quot;,<br/>				&quot;a.contentType&quot;:&quot;eVar72&quot;,<br/>				&quot;a.media.timePlayed&quot;:&quot;event90&quot;,<br/>				&quot;a.media.view&quot;:&quot;event91&quot;,<br/>				&quot;a.media.segmentView&quot;:&quot;event92&quot;,<br/>				&quot;a.media.milestones&quot;:{<br/>					25:&quot;event93&quot;,<br/>					50:&quot;event94&quot;,<br/>					75:&quot;event95&quot;,<br/>					100:&quot;event96&quot;<br/>				}<br/>			},*/<br/>			<br/>		}<br/>		<br/>		,channelManager:&nbsp;{<br/>			_callOnLoad:&nbsp;true,<br/>			<br/>			extraSearchEngines:&nbsp;&quot;google.lu|q|Google&nbsp;-&nbsp;Luxemburg&gt;google.dz|q|Google&nbsp;-&nbsp;Algeria&gt;google.dj|q|Google&nbsp;-&nbsp;Djibouti&gt;google.com.tr|q|Google&nbsp;-&nbsp;Turkey&gt;google.com.cu|q|Google&nbsp;-&nbsp;Cuba&gt;qc.search.yahoo.com|p|Yahoo&nbsp;-&nbsp;Quebec&gt;ca.msn.com|q|MSN&nbsp;-&nbsp;Canada&gt;lycos.ca|q|Lycos&nbsp;-&nbsp;Canada&gt;ca.altavista.com|q|Altavista&nbsp;-&nbsp;Canada&gt;looksmart.com|qt|LookSmart&gt;about.com|terms|About.com&gt;mamma.com|q|Mamma&gt;gigablast.com|q|Gigablast&gt;voila.fr|rdata|Voila&gt;search.com|q|Search.com&gt;onet.com|qt|Onet&gt;google.interia.pl|q|Interia&gt;toile.com|q|Toile&nbsp;Quebec&quot;,<br/>			channelDomain:&nbsp;&quot;&quot;,<br/>			channelParameter:&nbsp;&quot;&quot;,<br/>			channelPattern:&nbsp;&quot;&quot;,<br/>			external_query_param:&nbsp;&quot;biext&quot;<br/>		}<br/>	},<br/><br/>	/*&nbsp;<br/>	&nbsp;*&nbsp;NON-ADAPTER&nbsp;settings&nbsp;-&nbsp;some&nbsp;need&nbsp;to&nbsp;be&nbsp;present&nbsp;in&nbsp;other&nbsp;adapters&nbsp;settings&nbsp;using&nbsp;the&nbsp;same&nbsp;processor<br/>	&nbsp;*/	<br/>	gmt_offset:&nbsp;&quot;-5&quot;,<br/><br/>	eof:&quot;eof&quot;<br/>};<br/><br/>//&nbsp;PROCESSOR&nbsp;-&nbsp;Business&nbsp;Logic&nbsp;to&nbsp;create&nbsp;Data&nbsp;object<br/>var&nbsp;OMNI_PROCESSOR&nbsp;=&nbsp;_ut_PROCESSOR;<br/><br/>//&nbsp;MAP&nbsp;-&nbsp;use&nbsp;the&nbsp;adapter&nbsp;helper&nbsp;functions&nbsp;or&nbsp;the&nbsp;Solution&nbsp;object&nbsp;directly<br/>var&nbsp;OMNI_MAP&nbsp;=&nbsp;function&nbsp;(data)&nbsp;{<br/>		var&nbsp;s&nbsp;=&nbsp;this.s,&nbsp;settings&nbsp;=&nbsp;this.settings;<br/>		var&nbsp;CAMP_SETTINGS&nbsp;=&nbsp;settings.campaign;&nbsp;<br/><br/>		//&nbsp;data&nbsp;to&nbsp;lower&nbsp;case<br/>		data&nbsp;=&nbsp;_UT.lowerCase(data);<br/>		<br/>		<br/>		//&nbsp;ONITURE&nbsp;SPECIFIC&nbsp;BUSINESS&nbsp;LOGIC<br/>		<br/>		<br/>		//***&nbsp;EXTERNAL&nbsp;CAMPAIGN&nbsp;TRACKING&nbsp;**<br/>		var&nbsp;sCookie;<br/>		<br/>		//&nbsp;channel&nbsp;Manager<br/>		data.sATSCh&nbsp;=&nbsp;s._channel?s.getValOnce((&quot;&quot;+s._channel).toLowerCase(),&quot;s_ch&quot;,0):&quot;&quot;;<br/>		data.sATSChStack&nbsp;=&nbsp;s.crossVisitParticipation((s._channel?(&quot;&quot;+s._channel).toLowerCase():&quot;&quot;),'s_chs',30,'7','&gt;');&nbsp;<br/>		<br/>		data.sATSK&nbsp;=&nbsp;s._keywords?s.getValOnce((&quot;&quot;+s._keywords).toLowerCase(),&quot;s_k&quot;,0):&quot;&quot;;<br/>		data.sATSKStack&nbsp;=&nbsp;s.crossVisitParticipation((s._keywords?(&quot;&quot;+s._keywords).toLowerCase():&quot;&quot;),'s_ks',30,'7','&gt;');&nbsp;<br/>		<br/>		data.sATSC&nbsp;=&nbsp;s._campaign;<br/>		data.sATSCStack&nbsp;=&nbsp;s.crossVisitParticipation(s._campaign,'s_cs',30,'5','&gt;','');<br/><br/>		<br/>		<br/>		//***&nbsp;TIME&nbsp;PARTING&nbsp;**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	var&nbsp;tmp_curYear=&nbsp;(new&nbsp;Date()).getFullYear();<br/>&nbsp;&nbsp;&nbsp;		data.time_parting&nbsp;=&nbsp;(s.getTimeParting('d',this.settings.gmt_offset,tmp_curYear)&nbsp;+&nbsp;'-'&nbsp;+&nbsp;s.getTimeParting('h',this.settings.gmt_offset,tmp_curYear));&nbsp;//TIME&nbsp;PARTING	<br/>		<br/>		//***&nbsp;DAYS&nbsp;SINCE&nbsp;LAST&nbsp;VISIT&nbsp;**<br/>&nbsp;&nbsp;&nbsp;		data.days_last_visit&nbsp;=&nbsp;s.getDaysSinceLastVisit('s_lv');&nbsp;//&nbsp;FREQUENCY<br/><br/>		//***&nbsp;NEW&nbsp;VS&nbsp;REPEAT&nbsp;***<br/>		data.new_vs_repeat&nbsp;=&nbsp;s.getNewRepeat();<br/>		<br/>		//***&nbsp;VISIT&nbsp;NUMBER&nbsp;***<br/>		data.visit_num&nbsp;=&nbsp;&quot;&quot;&nbsp;+&nbsp;s.getVisitNum();	<br/><br/><br/>		//EVENTS<br/>		this.addEvent(&quot;event7&quot;);&nbsp;//&nbsp;pageview&nbsp;event&nbsp;-&nbsp;dont&nbsp;send&nbsp;in&nbsp;track&nbsp;link&nbsp;==&gt;&nbsp;this&nbsp;handled&nbsp;by&nbsp;tracklink&nbsp;variables&nbsp;OK<br/>		if(data.fireEvent)&nbsp;{<br/>			this.addEvent(&quot;event9&quot;);<br/>		}<br/><br/>		//STANDARD&nbsp;TRAFFIC<br/><br/>		s.pageName&nbsp;=&nbsp;data.sPN;<br/>		<br/>		//&nbsp;Props	<br/>		s.prop1&nbsp;&nbsp;=&nbsp;data.sL;&nbsp;<br/>		s.prop7&nbsp;&nbsp;=&nbsp;data.sSec;&nbsp;<br/>&nbsp;&nbsp;&nbsp;		s.prop8&nbsp;&nbsp;=&nbsp;data.time_parting.toLowerCase();&nbsp;<br/>		s.prop9&nbsp;=&nbsp;data.sA;&nbsp;<br/>		s.prop10&nbsp;=&nbsp;data.new_vs_repeat.toLowerCase();&nbsp;//NEW&nbsp;VS&nbsp;REPEAT<br/>		s.prop11&nbsp;=&nbsp;data.days_last_visit.toLowerCase();&nbsp;//DAYS&nbsp;SINCE&nbsp;LAST&nbsp;VISIT<br/>		s.prop12&nbsp;=&nbsp;data.visit_num.toLowerCase();&nbsp;//VISIT&nbsp;NUMBER<br/>		s.prop13&nbsp;=&nbsp;data.JsFileInfo;&nbsp;//&nbsp;JS&nbsp;File&nbsp;Info<br/><br/><br/>		//CUSTOM&nbsp;CONVERSION&nbsp;<br/>		s.zip&nbsp;=&nbsp;data.sZip;&nbsp;//&nbsp;ZIP<br/>		s.campaign&nbsp;=&nbsp;s.getValOnce(data.campaign,&quot;s_v0&quot;,0);<br/>		s.eVar1&nbsp;=&nbsp;&quot;D=c1&quot;;&nbsp;//PROVINCE<br/>		s.eVar2&nbsp;=&nbsp;&quot;D=c2&quot;;&nbsp;//TIME&nbsp;PARTING<br/>		s.eVar3&nbsp;=&nbsp;&quot;D=c3&quot;;&nbsp;//LANGUAGE<br/>		<br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/>
+        </pre>
+		</div>
+	  </div><!-- end row -->
+	  </section>
+
+
+	  <section id="ga">
+      <div class="row">
+        <div class="span2">
+			<h3>gaSettings.js</h3>
+			<p>This file contains specific settings for an Instance of an gaAdapter as well as the mapping function to send the parse the data into the <code>_gaq</code> object.</p>
+		</div>
+        <div class="span10">
+			<h4>Example of gaSettings.js file</h4>
+			<p>The first part of this file is used to configure Google Analytics and its plugins using the <code>gaAdapter</code> whch acts as a abstraction layer simplifying the configuration of GA and plugins. The second part presents an example of how to transform the data (from the processor) and map it into the <code>_gaq</code> Object.</p>
+			<pre class="prettyprint linenums lang-js">
+<br/>//###########################################################################<br/>//GOOGLE&nbsp;ANALYTICS&nbsp;TEST<br/>//###########################################################################<br/><br/>//&nbsp;SETTINGS&nbsp;-&nbsp;Solution&nbsp;and&nbsp;Library&nbsp;settings<br/>var&nbsp;GA_SETTINGS&nbsp;=&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;'_ut_ga',<br/>&nbsp;&nbsp;&nbsp;&nbsp;type:&nbsp;'ga',<br/>    <br/>	//&nbsp;Settings&nbsp;info<br/>	info:&nbsp;{<br/>		version:&nbsp;&quot;1.1.0&quot;,<br/>		date:	&quot;2011-12-28&quot;,<br/>		author:&nbsp;&quot;DD&quot;<br/>	},<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;/**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constants&nbsp;-&nbsp;default&nbsp;args&nbsp;which&nbsp;will&nbsp;be&nbsp;available&nbsp;in&nbsp;processor&nbsp;and&nbsp;mapping<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;args&nbsp;should&nbsp;be&nbsp;of&nbsp;form:&nbsp;&quot;keyword&quot;&nbsp;:&nbsp;[&nbsp;(string)default_value&nbsp;,&nbsp;(array)keyword_array&nbsp;]<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;args&nbsp;keywords&nbsp;will&nbsp;be&nbsp;available&nbsp;in&nbsp;the&nbsp;args&nbsp;object<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br/>&nbsp;&nbsp;&nbsp;&nbsp;args:&nbsp;_ut_ARGS,<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;/**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Solution&nbsp;Specific&nbsp;settings<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br/>&nbsp;&nbsp;&nbsp;&nbsp;prod_account:&nbsp;s_ga_prod_account,<br/>&nbsp;&nbsp;&nbsp;&nbsp;prod_urls:&nbsp;s_prod_urls,<br/>&nbsp;&nbsp;&nbsp;&nbsp;dev_account:&nbsp;s_ga_dev_account,<br/>&nbsp;&nbsp;&nbsp;&nbsp;dev_urls:&nbsp;s_dev_urls,<br/>	<br/>//	domainName:&nbsp;'',&nbsp;//&nbsp;###&nbsp;basic&nbsp;tracking<br/>//	allowLinker:&nbsp;'',<br/>	<br/>	/*&nbsp;<br/>	&nbsp;*&nbsp;NON-ADAPTER&nbsp;settings&nbsp;-&nbsp;some&nbsp;need&nbsp;to&nbsp;be&nbsp;present&nbsp;in&nbsp;other&nbsp;adapters&nbsp;settings&nbsp;using&nbsp;the&nbsp;same&nbsp;processor<br/>	&nbsp;*/	<br/>	gmt_offset:&nbsp;&quot;-5&quot;,<br/><br/><br/>	eof:&quot;eof&quot;<br/>};<br/><br/>//&nbsp;PROCESSOR&nbsp;-&nbsp;Business&nbsp;Logic&nbsp;to&nbsp;create&nbsp;Data&nbsp;object<br/>var&nbsp;GA_PROCESSOR&nbsp;=&nbsp;_ut_PROCESSOR<br/><br/>//&nbsp;MAP&nbsp;-&nbsp;use&nbsp;the&nbsp;adapter&nbsp;helper&nbsp;functions&nbsp;or&nbsp;the&nbsp;Solution&nbsp;object&nbsp;directly<br/>var&nbsp;GA_MAP&nbsp;=&nbsp;function&nbsp;(data)&nbsp;{<br/><br/><br/>	if(data.is404ServerError)&nbsp;{<br/>		this.setPageName(&quot;/not_found/&quot;&nbsp;+&nbsp;data.sURL&nbsp;);<br/>	}<br/><br/>	//&nbsp;EVENTS<br/>	this.trackEvent(['Technology',&nbsp;'JS&nbsp;Version',&nbsp;data.JsFileInfo])<br/>		<br/>	if(data.fireEvent)&nbsp;{&nbsp;<br/>		this.trackEvent(['Action',&nbsp;'Fire',&nbsp;'Event'])<br/>	}<br/>	<br/><br/>	//&nbsp;CUSTOM&nbsp;VARIABLES<br/>	if(data.sL)&nbsp;<br/>		this.setCustomVar([&nbsp;1,&nbsp;//&nbsp;This&nbsp;custom&nbsp;var&nbsp;is&nbsp;set&nbsp;to&nbsp;slot&nbsp;#1.&nbsp;&nbsp;Required&nbsp;parameter.<br/>			'Language',&nbsp;//&nbsp;The&nbsp;name&nbsp;acts&nbsp;as&nbsp;a&nbsp;kind&nbsp;of&nbsp;category&nbsp;for&nbsp;the&nbsp;user&nbsp;activity.&nbsp;&nbsp;Required&nbsp;parameter.<br/>			data.sL,&nbsp;//&nbsp;This&nbsp;value&nbsp;of&nbsp;the&nbsp;custom&nbsp;variable.&nbsp;&nbsp;Required&nbsp;parameter.<br/>			3&nbsp;//&nbsp;Sets&nbsp;the&nbsp;scope&nbsp;to&nbsp;page-level.&nbsp;&nbsp;Optional&nbsp;parameter.<br/>		]);	<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/>
+        </pre>
+		</div>
+	  </div><!-- end row -->
+	  </section>
+
+
+	  <section id="container">
+      <div class="row">
+        <div class="span2">
+			<h3>container.js</h3>
+			<p>The container file puts all the previous settings together to fire all the adapters</p>
+		</div>
+        <div class="span10">
+			<h4>Example of container.js file</h4>
+			<p>The first part of the code serves to load the settings of each adapter instance into a container object and then call the fire function of each. An example is shown of how to use the container to fire for only a single instance using that adapter's id.</p>
+			<pre class="prettyprint linenums lang-js">
+//###########################################################################<br/>//&nbsp;UT&nbsp;CONTAINER<br/>//###########################################################################<br/><br/>    //&nbsp;using&nbsp;container&nbsp;to&nbsp;create&nbsp;the&nbsp;objects<br/>    _ut_container&nbsp;=&nbsp;new&nbsp;_UT.Container(<br/>		{settings:&nbsp;OMNI_SETTINGS,&nbsp;map:&nbsp;OMNI_MAP,&nbsp;processor:&nbsp;OMNI_PROCESSOR}<br/>		,{settings:&nbsp;GA_SETTINGS,&nbsp;map:&nbsp;GA_MAP,&nbsp;processor:&nbsp;GA_PROCESSOR}<br/>	);<br/>	<br/>	//&nbsp;using&nbsp;container&nbsp;to&nbsp;fire<br/>	_ut_container.call('fire',false,{<br/>		__usePrevious:&nbsp;false,<br/>		__useWindow:&nbsp;true<br/>	});<br/>	<br/>//###########################################################################<br/>//&nbsp;Additional&nbsp;Functions<br/>//###########################################################################<br/><br/>	function&nbsp;s_trackPageview(params)&nbsp;{<br/>		if(typeof&nbsp;params.__usePrevious&nbsp;==&nbsp;&quot;undefined&quot;)&nbsp;params.__usePrevious&nbsp;=&nbsp;false;<br/>		if(typeof&nbsp;params.__useWindow&nbsp;==&nbsp;&quot;undefined&quot;)&nbsp;params.__useWindow&nbsp;=&nbsp;true;<br/>		_ut_container.call('fire',<br/>				&nbsp;{__include:&nbsp;['_ut_omni','_ut_ga']},<br/>				&nbsp;params<br/>		);<br/>	}
+        </pre>
+		</div>
+	  </div><!-- end row -->
+	  </section>
+	  
+    </section>
+	<!-- End Example -->
+
+ 
+
+     <!-- Footer
+      ================================================== -->
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Built at <a href="http://github.com/BellBusinessMarkets" target="_blank">Bell Business Markets</a> by <a href="hhttps://github.com/ddallala" target="_blank">@ddallala</a>. Maintained by the community via <a href="https://github.com">GitHub</a>.</p>
+        <p>Code licensed under the <a href="http://www.gnu.org/licenses/lgpl.txt" target="_blank">LGPLG v3</a>. Documentation of the license found at <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a>.</p>
+        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+		<p>Since I did not want to spend too much time on designing, this Documentation is completely "inspired" by <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap by Twitter</a></p>
+      </footer>
+
+    </div><!-- /container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/application.js"></script>
+	
+	
+	<!-- _UT javascript -->
+	 <script src="assets/js/UT/UT.js"></script>
+	 <script src="assets/js/UT/gaAdapter.js"></script>
+	 <script src="assets/js/UT/settings/UT.extensions.js"></script>
+	 <script src="assets/js/UT/settings/common.js"></script>
+	 <script src="assets/js/UT/settings/gaSettings.js"></script>
+	 <script src="assets/js/UT/settings/container.js"></script>
+	 
+	 <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
+	 
+  </body>
+</html>

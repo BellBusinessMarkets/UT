@@ -322,18 +322,22 @@ _UT.xyzAdapter = _UT.Adapter.extend({
         </div>
 	  </div>
     </section>
-
-
-
-      <!-- Adapter
+	<!-- end HowTo -->
+	
+	
+      <!-- gaAdapter
       ================================================== -->
       <section id="ga">
         <div class="page-header">
           <h1>gaAdapter <small>Using the Google Analytics Adapter</small></h1>
         </div>
       <div class="row">
-        <div class="span12">
-            <p>Following the previous instructions, an Adapter was created for Google Analytics type-named "ga".</p>
+        <div class="span2">
+			<h3>Background</h3>
+			<p>Following the previous instructions, an Adapter was created for Google Analytics type-named <code>ga</code>.</p>
+		</div>
+        <div class="span10">
+			<h3>Getting started</h3>
 			<p>In order to use the <code>gaAdapter</code> Class, we simply need to instantiate a new object and then call the <code>fire</code> function with our specific variables</p>
 			<pre class="prettyprint">
 // Create Adapter Instance
@@ -346,7 +350,16 @@ _ut_ga.fire({
 });
 </pre>
 		<p>Evidently <code>GA_SETTINGS</code>, <code>GA_MAP</code> amd <code>GA_PROCESSOR</code> need to be defined already</p>
-		<p>Lets first build the <code>GA_SETTINGS</code> object. In addition to the mandatory properties of the <code>settings</code> object as described in <code>_UT.Adapter.settings</code>, the Google Analytics <code>settings</code> objects requires many specific properties to work as expected:</p>
+		</div>
+		</div>
+		<div class="row">
+        <div class="span2">
+			<h3>Settings</h3>
+			<p>Lets build the <code>GA_SETTINGS</code> object.</p>
+		</div>
+        <div class="span10">
+		<h3>Property Table</h3>
+ 		<p>In addition to the mandatory properties of the <code>settings</code> object as described in <code>_UT.Adapter.settings</code>, the Google Analytics <code>settings</code> objects requires many specific properties to work as expected:</p>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -415,9 +428,665 @@ args: {
 				<code>prod_account</code>
 			</td>
             <td>
-				<p></p>
+				<p>Account used for PRODUCTION data</p>
 				<pre class="prettyprint">
+prod_account: "UA-12345678-1",
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._setAccount" target="_blank">_setAccount</a></p>
+            </td>
+          </tr> 
 
+          <tr>
+            <td>
+				<code>prod_urls</code>
+			</td>
+            <td>
+				<p>Comma-delimited list of Accounts that are PRODUCTION</p>
+				<pre class="prettyprint">
+prod_urls: 'bellbusinessmarkets.github.com',
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>dev_account</code>
+			</td>
+            <td>
+				<p>Account used for DEVELOPMENT data</p>
+				<pre class="prettyprint">
+dev_account: "UA-12345678-2",
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._setAccount" target="_blank">_setAccount</a></p>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>dev_urls</code>
+			</td>
+            <td>
+				<p>Comma-delimited list of Accounts that are DEVELOPMENT</p>
+				<pre class="prettyprint">
+dev_urls: 'dev.bellbusinessmarkets.github.com',
+				</pre>
+				<div class="alert alert-info"><strong>Note:</strong> If urls are present in both <code>dev_urls</code> and <code>prod_urls</code>, then <code>dev_urls</code> takes precedence.</div>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>domainName</code>
+			</td>
+            <td>
+				<p>Sets the domain name for the GATC cookie</p>
+				<pre class="prettyprint">
+domainName: 'bellbusinessmarkets.github.com',
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiDomainDirectory#_gat.GA_Tracker_._setDomainName" target="_blank">_setDomainName</a></p>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>allowLinker</code>
+			</td>
+            <td>
+				<p>Sets the linker functionality flag as part of enabling cross-domain user tracking.</p>
+				<pre class="prettyprint">
+allowLinker: 'true',
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiDomainDirectory#_gat.GA_Tracker_._setAllowLinker" target="_blank">_setAllowLinker</a></p>
+            </td>
+          </tr> 
+		 
+		 </tbody>
+		 </table>
+  		<div class="alert alert-error"><strong>Warning:</strong> There is still missing functionnality from the gaAdapter plugin.</div>
+		</div>
+		</div>
+		<div class="row">
+        <div class="span2">
+			<h3>API</h3>
+			<p>The <code>gaAdapter</code> also exposes some methods to simplify the interaction with the <code>_gaq</code> object.</p>
+		</div>
+        <div class="span10">
+		<h3>Methods</h3>
+		<p>These methods are available from the <code>this</code> object within the <code>map</code> function.</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description & Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+				<code>fire</code>
+			</td>
+            <td>
+				<p>Mandatory function inherited from the <code>_UT.Adapter</code> Interface.</p>
+				<p>Fires both the <code>_trackPageview</code> and <code>_trackTrans</code> if available. Will need to block the trackPageview in certain cases using <code>blockTrackPageView</code></p>
+				<p>For more information, view <a href="http://bellbusinessmarkets.github.com/UT/classes.html#adapter">_UT.Adapter.fire</a></p>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>trackEvent</code>
+			</td>
+            <td>
+				<p>Constructs and sends the event tracking call to the Google Analytics Tracking Code.</p>
+				<pre class="prettyprint">
+// in map()
+this.trackEvent(category, action, opt_label, opt_value, opt_noninteraction);
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiEventTracking#_gat.GA_EventTracker_._trackEvent" target="_blank">_trackEvent</a></p>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>setCustomVar</code>
+			</td>
+            <td>
+				<p>Sets a custom variable with the supplied name, value, and scope for the variable.</p>
+				<pre class="prettyprint">
+// in map()
+this.setCustomVar(index, name, value, opt_scope);
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._setCustomVar" target="_blank">_setCustomVar</a></p>
+            </td>
+          </tr> 
+
+
+          <tr>
+            <td>
+				<code>addTransaction</code>
+			</td>
+            <td>
+				<p>Creates a transaction object with the given values and adds items to that transaction</p>
+				<ol>
+                    <li><code>trans</code> An object contains transaction information using the following properties:
+						<ul>
+							<li><code>order_id</code> order ID - <b>required</b></li>
+							<li><code>store_name</code> affiliation or store name</li>
+							<li><code>total</code> total - <b>required</b></li>
+							<li><code>tax</code> tax</li>
+							<li><code>shipping</code> shipping</li>
+							<li><code>city</code> city</li>
+							<li><code>province</code> state or province</li>
+							<li><code>country</code> country</li>
+						</ul>
+					</li>
+
+                    <li><code>prods</code> Array of items to be added to transaction. Each item is an object with the following properties:
+						<ul>
+							<li><code>order_id</code> order ID - <b>required</b></li>
+							<li><code>sku</code> SKU/code - <b>required</b></li>
+							<li><code>name</code> product name</li>
+							<li><code>variation</code> category or variation</li>
+							<li><code>price</code> unit price - <b>required</b></li>
+							<li><code>quantity</code> quantity - <b>required</b></li>
+						</ul>
+					</li>
+                </ol>
+				<pre class="prettyprint">
+// in map()
+this.addTransaction({
+	order_id: '1234',		// order ID - required
+	store_name: 'Womens Apparel',	// affiliation or store name
+	total: '28.28',			// total - required
+	tax: '1.29',			// tax
+	shipping: '15.00',		// shipping
+	city: 'San Jose',			// city
+	province: 'California',		// state or province
+	country: 'USA'		// country
+},[{
+	order_id: '1234', 	// order ID - required
+	sku: 'DD44',		// SKU/code - required
+	name: 'T-Shirt',		// product name
+	variation: 'Olive Medium',	// category or variation
+	price: '11.99',		// unit price - required
+	quantity: '1'	// quantity - required
+},{
+	order_id: '1235', 	// order ID - required
+	sku: 'DD45',		// SKU/code - required
+	name: 'Sweat-Shirt',		// product name
+	variation: 'Black',	// category or variation
+	price: '22.99',		// unit price - required
+	quantity: '2'	// quantity - required
+}]);
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiEcommerce" target="_blank">Tracking Code: Ecommerce</a></p>
+            </td>
+          </tr> 
+
+
+          <tr>
+            <td>
+				<code>blockTrackPageView</code>
+			</td>
+            <td>
+				<p>In case you do want the <code>fire</code> to also call <code>_trackPageview</code>, then use the <code>blockTrackPageView</code> method to disable it.</p>
+				<div class="alert alert-info"><strong>Note:</strong> The trackPageview functionality will be unblocked at the end of the <code>fire</code> action.</div>
+				<pre class="prettyprint">
+// in map()
+this.trackEvent(category, action, opt_label, opt_value, opt_noninteraction);
+this.blockTrackPageView();
+				</pre>
+
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>setPageName</code>
+			</td>
+            <td>
+				<p>Enables you to set the optional pagename URL in <code>_trackPageview</code>.</p>
+				<div class="alert alert-info"><strong>Note:</strong> The trackPageview functionality will be unblocked at the end of the <code>fire</code> action.</div>
+				<pre class="prettyprint">
+// in map()
+if(data.is404ServerError) {
+	this.setPageName("/404/" + data.sURL );
+}
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._trackPageview" target="_blank">_trackPageview</a></p>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>getTrackerName</code>
+			</td>
+            <td>
+				<p>Retrieves the tracker object with the given name.</p>
+				<div class="alert alert-info"><strong>Note:</strong> By default the name of the tracker is set to <code>settings.id</code>.</div>
+				<pre class="prettyprint">
+// in map()
+this.getTrackerName();
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApi_gat#_gat._getTrackerByName" target="_blank">_getTrackerByName</a></p>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>getTrackerAccount</code>
+			</td>
+            <td>
+				<p>Returns the Google Analytics ID for this tracker object.</p>
+				<pre class="prettyprint">
+// in map()
+this.getTrackerAccount();
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._getAccount" target="_blank">_getAccount</a></p>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>getTrackerVersion</code>
+			</td>
+            <td>
+				<p>Returns the GATC version number.</p>
+				<pre class="prettyprint">
+// in map()
+this.getTrackerVersion();
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._getAccount" target="_blank">_getVersion</a></p>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>getVisitorCustomVar</code>
+			</td>
+            <td>
+				<p>Returns the visitor level custom variable value assigned for the specified index.</p>
+				<pre class="prettyprint">
+// in map()
+this.getVisitorCustomVar(1);
+				</pre>
+				<p>For more information, view <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._getVisitorCustomVar" target="_blank">_getVisitorCustomVar</a></p>
+            </td>
+          </tr> 
+
+		 </tbody>
+		 </table>
+		
+        </div>
+	  </div>
+    </section>
+	<!-- End gaAdapter -->
+	
+	
+    <!-- omniAdapter
+      ================================================== -->
+      <section id="omni">
+        <div class="page-header">
+          <h1>omniAdapter <small>Using the Adobe Omniture Adapter</small></h1>
+        </div>
+      <div class="row">
+        <div class="span2">
+			<h3>Background</h3>
+			<p>A more complex Adapter has also been created for Omniture type-named <code>omni</code>.</p>
+			<div class="alert alert-error"><strong>Warning: </strong> Because Adobe owns the <code>s_code</code> and plugins, we have removed them from the Adapter. Place holders have been set. <strong>Simply contact Client Care to retrieve the exact code.</strong></div>
+		</div>
+        <div class="span10">
+			<h3>Getting started</h3>
+			<p>In order to use the <code>omniAdapter</code> Class, we simply need to instantiate a new object and then call the <code>fire</code> function with our specific variables</p>
+			<pre class="prettyprint">
+// Create Adapter Instance
+_ut_omni = new _UT.omniAdapter(OMNI_SETTINGS, OMNI_MAP, OMNI_PROCESSOR);
+
+// Fire Adapter beacon
+_ut_omni.fire({
+    __usePrevious: false,
+    __useWindow: true
+});
+</pre>
+		<p>Evidently <code>OMNI_SETTINGS</code>, <code>OMNI_MAP</code> amd <code>OMNI_PROCESSOR</code> need to be defined already</p>
+		</div>
+		</div>
+		
+		<div class="row">
+        <div class="span2">
+			<h3>Settings</h3>
+			<p>Lets build the <code>OMNI_SETTINGS</code> object.</p>
+		</div>
+        <div class="span10">
+		<h3>Property Table</h3>
+ 		<p>In addition to the mandatory properties of the <code>settings</code> object as described in <code>_UT.Adapter.settings</code>, the Omniture <code>settings</code> objects requires many specific properties to work as expected:</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Description & Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+				<code>id</code>
+			</td>
+            <td>
+				<p>The <code>id</code> will also be used to create the instance globally in Container</p>
+				<pre class="prettyprint">
+id: "_ut_omni", // same value as variable name _ut_omni
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>type</code>
+			</td>
+            <td>
+				<p>This property is only mandatory when using a _UT.Container. Shoudl be set to "<code>omni</code>"</p>
+				<pre class="prettyprint">
+type: "omni",
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>info</code>
+			</td>
+            <td>
+				<p>This property is not mandatory but useful in keeping track of Settings versions.</p>
+				<pre class="prettyprint">
+{
+date:    "2012-05-12",
+author: "DD"
+}, 
+				</pre>
+            </td>
+          </tr> 
+		  
+          <tr>
+            <td>
+				<code>args</code>
+			</td>
+            <td>
+				<p>Object of properties representing all arguments that will be attached to the <code>data</code> object. Each property is a two item Array where the FIRST item is default value and the SECOND is a list of accepted variable names.</p>
+				<pre class="prettyprint">
+args: {
+   sPN: ["no_pagename", ["s_pageName", "sPN"]],
+   sPath: ["", ["s_path"]]
+},
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>prod_account</code>
+			</td>
+            <td>
+				<p>Comma-delimited list of Accounts used for PRODUCTION data</p>
+				<pre class="prettyprint">
+prod_account: "xx_prod_1,xx_prod_2",
+				</pre>
+
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>prod_urls</code>
+			</td>
+            <td>
+				<p>Comma-delimited list of Accounts that are PRODUCTION</p>
+				<pre class="prettyprint">
+prod_urls: 'bellbusinessmarkets.github.com',
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>dev_account</code>
+			</td>
+            <td>
+				<p>Comma-delimited list of Accounts used for DEVELOPMENT data</p>
+				<pre class="prettyprint">
+dev_account: "yyy_dev_1",
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>dev_urls</code>
+			</td>
+            <td>
+				<p>Comma-delimited list of Accounts that are DEVELOPMENT</p>
+				<pre class="prettyprint">
+dev_urls: 'dev.bellbusinessmarkets.github.com',
+				</pre>
+				<div class="alert alert-info"><strong>Note:</strong> If urls are present in both <code>dev_urls</code> and <code>prod_urls</code>, then <code>dev_urls</code> takes precedence.</div>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>visitorNamespace</code>
+			</td>
+            <td>
+				<p>Sets the <code>visitorNamespace</code> for the s object</p>
+				<pre class="prettyprint">
+visitorNamespace: 'bellbusinessmarkets.github.com',
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>use_first_party_cookies</code>
+			</td>
+            <td>
+				<p>Optional property whcih if used sets the configurations to use first-party tracking for <code>s_vi</code> cookie</p>
+				<ol>
+                    <li><code>trackingServer</code> Domain name of tracking server</li>
+					<li><code>trackingServerSecure</code> Domain name of secure tracking server</li>
+				</ol>
+				<pre class="prettyprint">
+use_first_party_cookies: { // defaults to false - remove if not using first party cookies
+	trackingServer: "xx_trackserver_xx.com",
+	trackingServerSecure: "xx_trackserver_xxs.com"
+},
+				</pre>
+            </td>
+          </tr> 
+		  
+          <tr>
+            <td>
+				<code>linkTrackEvents</code>
+			</td>
+            <td>
+				<p>Comma-delimited list of default <code>events</code> to track with every Custom-Link</p>
+				<pre class="prettyprint">
+linkTrackEvents: 'event47,event48,event49,event50,event51,event52,event53',
+				</pre>
+            </td>
+          </tr> 
+		  
+          <tr>
+            <td>
+				<code>linkTrackVars</code>
+			</td>
+            <td>
+				<p>Comma-delimited list of default <code>props</code> and <code>eVars</code> to track with every Custom-Link</p>
+				<pre class="prettyprint">
+linkTrackVars: 'prop7,eVar7,eVar9,prop13,prop35,eVar50,eVar51,prop10,eVar10',
+				</pre>
+            </td>
+          </tr> 
+		  
+		  <tr>
+           <td>
+				<code>plugins</code>
+			</td>
+            <td>
+				<p>Object containing plugin settings. Plugins are entirely optional but can easily be turned on here.</p>
+				<pre class="prettyprint">
+// Plugin specific settings
+plugins: {
+	// getPageName configs
+	getPageName: {
+		siteID: s_company +  ":unnamed"
+	}
+	
+//...
+},
+				</pre>
+            </td>
+          </tr> 
+
+		<tr>
+           <td>
+				<code>plugins.getPageName</code>
+			</td>
+            <td>
+				<p><code>getPageName</code> settings expects an Object:</p>
+				<ul>
+					<li><code>siteID</code> Prefix before each <code>pageName</code></li>
+				</ul>
+				<pre class="prettyprint">
+// Plugin specific settings
+plugins: {
+	// getPageName configs
+	getPageName: {
+		siteID: 'mycomp' +  ":unnamed"
+	}
+	
+//...
+},
+				</pre>
+            </td>
+          </tr> 
+
+		<tr>
+           <td>
+				<code>plugins.setupFormAnalysis</code>
+			</td>
+            <td>
+				<p><code>setupFormAnalysis</code> settings expects an Object:</p>
+				<ul>
+					<li><code>formList</code> Comma delimited list of form names</li>
+					<li><code>trackFormList</code> {Boolean} true for tracking only <code>formList</code>; <code>false</code> to track all forms exluding <code>formList</code></li>
+					<li><code>useCommerce</code> {Boolean} to decide if eVar should be used in <code>varUsed</code></li>
+					<li><code>eventList</code> if <code>useCommerce</code> is <code>true</code> then comma delimited list of events representing Abandon,Success and Error</li>
+				</ul>
+				<pre class="prettyprint">
+// Plugin specific settings
+plugins: {
+
+	// setupFormAnalysis configs
+	setupFormAnalysis: {	// defaults to false
+		formList: "",
+		trackFormList: true, // track form list given
+		useCommerce: true,
+		varUsed: "eVar33",
+		eventList: "event36,event37,event38" //Abandon,Success,Error // onlyIf useCommerce true
+	},
+//...
+},
+				</pre>
+            </td>
+          </tr> 
+
+		<tr>
+           <td>
+				<code>plugins.Media</code>
+			</td>
+            <td>
+				<p><code>Media</code> settings expects an Object:</p>
+				<ul>
+					<li><code>autoTrack</code> {boolean}</li>
+					<li><code>trackMilestones</code> Comma-Delimited {string} of integers</li>
+					<li><code>playerName</code> Name of Video Player</li>
+					<li><code>trackWhilePlaying</code> {boolean}</li>
+					<li><code>trackVars</code> Variables to send on each Custom Link</li>
+					<li><code>trackEvents</code> Events to send on each Custom Link</li>
+					<li><code>monitor</code> {function}</li>
+					<li><code>trackUsingContextData</code> {boolean}</li>
+					<li><code>contextDataMapping</code> {object} mapping variables to values (view example)</li>
+				</ul>
+				<pre class="prettyprint">
+// Plugin specific settings
+plugins: {
+
+	// Media Plugin
+	Media: {
+		autoTrack: false,
+		trackMilestones:"25,50,75,100",
+		playerName:"YouTube",
+		trackWhilePlaying: true,
+		trackVars: "prop53,eVar53,eVar54,eVar6", // extra vars to send
+		trackEvents: "event65,event66,event67,event68,event69,event70,event71", // extra events to send
+		monitor: function (s,media){}
+		
+		trackUsingContextData: true,
+		contextDataMapping: {
+			"a.media.name":"eVar53,prop53",
+			"a.media.segment":"eVar54",
+			"a.contentType":"eVar6",
+			"a.media.timePlayed":"event65",
+			"a.media.view":"event66",
+			"a.media.segmentView":"event68",
+			"a.media.milestones":{
+				25:"event69",
+				50:"event70",
+				75:"event71",
+				100:"event67"
+			}
+		}
+		
+	},
+//...
+},
+				</pre>
+            </td>
+          </tr> 
+
+		<tr>
+           <td>
+				<code>plugins.channelManager</code>
+			</td>
+            <td>
+				<p><code>channelManager</code> settings expects an Object:</p>
+				<ul>
+					<li><code>_callOnLoad</code> {boolean}</li>
+					<li><code>extraSearchEngines</code> Comma-Delimited {string} of search-engines</li>
+					<li><code>channelDomain</code> {string}</li>
+					<li><code>channelParameter</code> {string}</li>
+					<li><code>channelPattern</code> {string}</li>
+					<li><code>external_query_param</code> <code>&gt;</code>-Delimited {string} of external campaign query parameters</li>
+				</ul>
+				<pre class="prettyprint">
+// Plugin specific settings
+plugins: {
+
+channelManager: {
+	_callOnLoad: true,
+	
+	extraSearchEngines: "google.lu|q|Google - Luxemburg>google.dz|q|Google - Algeria>google.dj|q|Google - Djibouti>google.com.tr|q|Google - Turkey>google.com.cu|q|Google - Cuba>qc.search.yahoo.com|p|Yahoo - Quebec>ca.msn.com|q|MSN - Canada>lycos.ca|q|Lycos - Canada>ca.altavista.com|q|Altavista - Canada",
+	channelDomain: "",
+	channelParameter: "",
+	channelPattern: "",
+	external_query_param: s_campaign_query_param
+},
+		
+	},
+//...
+},
 				</pre>
             </td>
           </tr> 
@@ -425,25 +1094,400 @@ args: {
 		 
 		 </tbody>
 		 </table>
-  
-        </div>
-	  </div>
-    </section>
-	
-      <!-- Container
-      ================================================== -->
-      <section id="omni">
-        <div class="page-header">
-          <h1>Container <small>Class to simplify mangement of Adapter Instances</small></h1>
-        </div>
-      <div class="row">
-        <div class="span12">
+
+		</div>
+		</div>
+
+		<div class="row">
+        <div class="span2">
+			<h3>API</h3>
+			<p>The <code>omniAdapter</code> also exposes some methods to simplify the interaction with the <code>s</code> object.</p>
+		</div>
+        <div class="span10">
+		<h3>Methods</h3>
+		<p>These methods are available from the <code>this</code> object within the <code>map</code> function.</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description & Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+				<code>fire</code>
+			</td>
+            <td>
+				<p>Mandatory function inherited from the <code>_UT.Adapter</code> Interface.</p>
+				<p>Fires both the <code>_trackPageview</code> and <code>_trackTrans</code> if available. Will need to block the trackPageview in certain cases using <code>blockTrackPageView</code></p>
+				<p>For more information, view <a href="http://bellbusinessmarkets.github.com/UT/classes.html#adapter">_UT.Adapter.fire</a></p>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>fireQueueAdd</code>
+			</td>
+            <td>
+				<p>Function to add <code>args</code> in queue to be fired.</p>
+				<pre class="prettyprint">
+// in map()
+this.fireQueueAdd({
+   __usePrevious: false,
+   __useWindow: true,
+   s_pageName: 'pagename:index'
+});
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>clean</code>
+			</td>
+            <td>
+				<p>Function to empty all <code>s</code> object variables (eVars,props,product,events...).</p>
+				<pre class="prettyprint">
+// in map()
+this.clean();
+				</pre>
+            </td>
+          </tr> 
 
 
+          <tr>
+            <td>
+				<code>clean</code>
+			</td>
+            <td>
+				<p>Function to empty all <code>s</code> object variables (eVars,props,product,events...).</p>
+				<pre class="prettyprint">
+// in map()
+this.clean();
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>setTrackLink</code>
+			</td>
+            <td>
+				<p>Creates a transaction object with the given values and adds items to that transaction</p>
+				<ol>
+                    <li><code>trans</code> An object contains transaction information using the following properties:
+						<ul>
+							<li><code>order_id</code> order ID - <b>required</b></li>
+							<li><code>store_name</code> affiliation or store name</li>
+							<li><code>total</code> total - <b>required</b></li>
+							<li><code>tax</code> tax</li>
+							<li><code>shipping</code> shipping</li>
+							<li><code>city</code> city</li>
+							<li><code>province</code> state or province</li>
+							<li><code>country</code> country</li>
+						</ul>
+					</li>
+
+                    <li>Sets the current beacon to a Custom-Link and attaches variables through the {object} properties being sent:
+						<ol>
+							<li><code>name</code> Name of custom link</li>
+							<li><code>linkTrackEvents</code> Extra events (not counting the settings default) to send</li>
+							<li><code>linkTrackVars</code> Extra variables (not counting the settings default) to send</li>
+						</ol>
+					</li>
+                </ol>
+				<pre class="prettyprint">
+// in map()
+this.setTrackLink({
+	  name: 'pagename:ajax',
+	  linkTrackEvents: 'event32,event33,event34,event35',
+	  linkTrackVars: 'eVar31,prop32'
+});
+				</pre>
+            </td>
+          </tr> 
+
+
+          <tr>
+            <td>
+				<code>addEvent</code>
+			</td>
+            <td>
+				<p>Method to easily add an event to the <code>events</code> variable. Takes 2 parameters:</p>
+				<ul>
+					<li><code>ev</code> Event in question</li>
+					<li><code>serializer</code> Optional Serializer</li>
+				</ul>
+				<div class="alert alert-info"><strong>Note:</strong> Event adding can be chained.</div>
+				
+				<pre class="prettyprint">
+// in map()
+this.addEvent("event21", '123456789').addEvent("event22");
+				</pre>
+
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>removeEvent</code>
+			</td>
+            <td>
+				<p>Method to easily remove an event from the <code>events</code> variable. Takes 1 parameter:</p>
+				<ul>
+					<li><code>ev</code> Event in question</li></ul>
+				<div class="alert alert-info"><strong>Note:</strong> Event removal can be chained.</div>
+				<pre class="prettyprint">
+// in map()
+this.removeEvent("event21").removeEvent("event22");
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>addProduct</code>
+			</td>
+            <td>
+				<p>Method to add products to the <code>products</code> string in an easy manner. Only the first parameter is required:</p>
+				<ul>
+					<li><code>prod</code> {array} of six items representing in order: category, name, quantity, type, incrementors and merchandising</li>
+					<li><code>inc_merc_1</code> {object} representing extra merchandising or incrementors (view example)</li>
+					<li><code>inc_merc_N</code> {object} you can add an unlimited number of these extra parameters</li>
+				</ul>
+				<pre class="prettyprint">
+// in map()
+this.addProduct(['', 't-shirt', 5, 50, 'event5=3434'], {
+    type: 'incrementor',
+    value: ['event4=2', 5345345]
+}, {
+    type: 'merchandising',
+    value: 'evar60=cart'
+})
+				</pre>
+
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>purchaseProduct</code>
+			</td>
+            <td>
+				<p>Method to automatically add a product and <code>purchase</code> success event</p>
+				<pre class="prettyprint">
+// in map()
+this.purchaseProduct(['', 't-shirt', 5, 50, 'event5=3434'], {
+    type: 'incrementor',
+    value: ['event4=2', 5345345]
+}, {
+    type: 'merchandising',
+    value: 'evar60=cart'
+})
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>addEventIncrementor</code>
+			</td>
+            <td>
+				<p>Method to add an event incrementor with NO product.</p>
+				<ol>
+					<li><code>ev</code> {string} The event</li>
+					<li><code>qty</code> {internger} Incrementor</li>
+				</ol>
+				<pre class="prettyprint">
+// in map()
+this.addEventIncrementor('event2',10);
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>cleanVariables</code>
+			</td>
+            <td>
+				<p>Method to clean and remove empty references form dynamic variables. Takes 2 parameters:</p>
+				<ol>
+					<li><code>type</code> {string} type of variable to remove: eVar or prop</li>
+					<li><code>max_num</code> {number} size of given variable space within the s object (usually 75)</li>
+				</ol>
+				
+				<pre class="prettyprint">
+// in map()
+this.cleanVariables('eVar',75);
+				</pre>
+            </td>
+          </tr> 
+
+		 </tbody>
 		 </table>
+
         </div>
-	  </div>
+		</div>
+		<div class="row">
+        <div class="span2">
+			<h3>Plugin API</h3>
+			<p>Certain plugins require functions to also be exposed. These plugin functions are added via <code>_UT.addPlugins</code></p>
+		</div>
+        <div class="span10">
+
+		<h3>Medi Plugin</h3>
+		<p>These methods are available from the <code>this</code> object within the <code>map</code> function.</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description & Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+				<code>startMovie</code>
+			</td>
+            <td>
+				<p>Method to start video - on video LOAD and automatically calls <code>playMovie</code>. Takes 3 parameters:</p>
+				<ol>
+					<li><code>mediaName</code> {string} Name of Video</li>
+					<li><code>mediaLength</code> {integer} Length of video in seconds</li>
+					<li><code>mediaPlayerName</code> {string} Name of media Player</li>
+				</ol>
+				<pre class="prettyprint">
+// in map()
+this.startMovie('How to implement complex analytics tracking requirement',3600,"YouTube");
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>playMovie</code>
+			</td>
+            <td>
+				<p>Method to play a movie after a pause. Call on video resume from pause and slider release. Takes 2 parameters:</p>
+				<ol>
+					<li><code>mediaName</code> {string} Name of Video</li>
+					<li><code>mediaOffset</code> {integer} Length of video played in seconds</li>
+				</ol>
+				<pre class="prettyprint">
+// in map()
+this.playMovie('How to implement complex analytics tracking requirement',1800);
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>stopMovie</code>
+			</td>
+            <td>
+				<p>Method to pause a movie. Call on video pause and slider grab. Takes 2 parameters:</p>
+				<ol>
+					<li><code>mediaName</code> {string} Name of Video</li>
+					<li><code>mediaOffset</code> {integer} Length of video played in seconds</li>
+				</ol>
+				<pre class="prettyprint">
+// in map()
+this.stopMovie('How to implement complex analytics tracking requirement',1800);
+				</pre>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>endMovie</code>
+			</td>
+            <td>
+				<p>Method to end a movie. Call on video end. Takes 2 parameters:</p>
+				<ol>
+					<li><code>mediaName</code> {string} Name of Video</li>
+					<li><code>mediaOffset</code> {integer} Length of video played in seconds</li>
+				</ol>
+				<pre class="prettyprint">
+// in map()
+this.endMovie('How to implement complex analytics tracking requirement',3600);
+				</pre>
+            </td>
+          </tr> 
+		  
+		  </tbody>
+		  </table>
+		</div>
+		</div>
+
+		<div class="row">
+        <div class="span2">
+			<h3>Extensions</h3>
+			<p>The <code>omniAdapter</code> also comes with a few extensions of the <code>_UT</code> Namespace (Static).</p>
+		</div>
+        <div class="span10">
+		<h3>SPRINTF</h3>
+		<p>Taken from <a href="http://www.diveintojavascript.com/projects/javascript-sprintf" target="_blank">http://www.diveintojavascript.com/projects/javascript-sprintf</a> to provide an <code>sptrinf</code> implementation </p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description & Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+				<code>sprintf</code>
+			</td>
+            <td>
+				<p>Function to format a string with associated variables. The parameters are:</p>
+				<ol>
+					<li><code>format</code> {string} Format string containing placeholders.</li>
+					<li><code>arg1</code> {mixed}</li>
+					<li><code>...</code></li>
+					<li><code>argN</code> {mixed}</li>
+				</ol>
+				<code> @return {string}</code>
+				<br><br/>
+				<pre class="prettyprint">
+_UT.sprintf('The first 4 letters of the english alphabet are: %s, %s, %s and %s', 'a', 'b', 'c', 'd');
+				</pre>
+				
+				<p>For more information view <a href="http://www.diveintojavascript.com/projects/javascript-sprintf" target="_blank">Javascript sptrinf()</a>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+				<code>vsprintf</code>
+			</td>
+            <td>
+				<p>same as sprintf() except that it accepts an array of arguments, rather than a variable number of arguments. The parameters are:</p>
+				<ol>
+					<li><code>format</code> {string} Format string containing placeholders.</li>
+					<li><code>arg1</code> {array}</li>
+				</ol>
+				<code> @return {string}</code>
+				<br/><br/>
+				<pre class="prettyprint">
+_UT.vsprintf('The first 4 letters of the english alphabet are: %s, %s, %s and %s', ['a', 'b', 'c', 'd']);
+				</pre>
+				
+				<p>For more information view <a href="http://www.diveintojavascript.com/projects/javascript-sprintf" target="_blank">Javascript sptrinf()</a>
+            </td>
+          </tr> 
+		  
+		  </tbody>
+		  </table>
+		</div>
+		</div>
+
     </section>
+	<!-- End omniAdapter -->
 
  
 
