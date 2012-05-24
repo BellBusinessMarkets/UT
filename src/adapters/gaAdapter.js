@@ -93,6 +93,7 @@ _UT.gaAdapter = _UT.Adapter.extend({
 
 	/**
 	 * Method to fire beacon for Google Analytics
+	 * @function
 	 * @param {Object} vars Arguments used in logic
 	 */
     fire: function (vars) {
@@ -116,6 +117,7 @@ _UT.gaAdapter = _UT.Adapter.extend({
 
     /**
      * Method to fire track Event
+	 * @function
 	 * @param {Array} params Array of Google Analytics parameters for specific function
      */    
     trackEvent: function(params) {
@@ -124,6 +126,7 @@ _UT.gaAdapter = _UT.Adapter.extend({
     },
     /**
      * Method to fire track Event
+	 * @function
 	 * @param {Array} params Array of Google Analytics parameters <index, name, value, opt_scope>
      */    
     setCustomVar: function(params) {
@@ -133,18 +136,21 @@ _UT.gaAdapter = _UT.Adapter.extend({
 
     /**
      * Method to prevent trackpageview from being fired
+	 * @function
      */
     unblockTrackPageView: function() {
         this._blocked = false;
     },
     /**
      * Method to unblock trackpageview
+	 * @function
      */
     blockTrackPageView: function() {
         this._blocked = true;
     },
     /**
      * Method check if trackpageview blocked
+	 * @function
 	 * @private
 	 * @return {boolean}
      */
@@ -154,6 +160,7 @@ _UT.gaAdapter = _UT.Adapter.extend({
     
     /**
      * Method to set the pagename of the current page
+	 * @function
 	 * @param {string} pn Name of page to send to GA
      */    
      setPageName: function(pn) {
@@ -164,12 +171,14 @@ _UT.gaAdapter = _UT.Adapter.extend({
      },
     /**
      * Method to set reset the pagename
+	 * @function
      */
      resetPageName: function() {
          this.pageName = '';
      },
     /**
      * Check whether a pagename override has been set
+	 * @function
 	 * @return {boolean}
      */
      hasPageName: function() {
@@ -178,6 +187,7 @@ _UT.gaAdapter = _UT.Adapter.extend({
      },
     /**
      * Check whether a pagename override has been set
+	 * @function
 	 * @return {string} The pagename
      */
      getPageName: function() {
@@ -186,6 +196,7 @@ _UT.gaAdapter = _UT.Adapter.extend({
      
     /**
      * getTrackerName
+	 * @function
      */ 
 /*     getTrackerName: function() {
          var self = this;

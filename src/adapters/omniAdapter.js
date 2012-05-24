@@ -323,6 +323,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
 
 	/**
 	 * Method to fire beacon for Omniture
+	 * @function
 	 * @param {Object} vars Arguments used in logic
 	 */
     fire: function (vars) {
@@ -355,6 +356,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
 
     /**
      * Method to add new beacon parameters to Queue for firing
+	 * @function
 	 * @param {Object} args Arguments used in logic
      */
     fireQueueAdd: function(args) {
@@ -362,6 +364,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
     },
     /**
      * Method to get the next beacon from the Queue
+	 * @function
 	 * @protected
 	 * @return {Object} Parameters to use for beacon
      */
@@ -370,6 +373,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
     },
     /**
      * Method to check if there are more beacons waiting to be fired
+	 * @function
 	 * @protected
 	 * @return {boolean}
      */
@@ -379,6 +383,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
     
     /**
      * Method clean the s object
+	 * @function
      */
     clean: function() {
         var s = this.s;
@@ -397,6 +402,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
 
     /**
      * Method to check if a beacon is a Custom Link tracking beacon
+	 * @function
 	 * @return {boolean}
      */
     isTrackLink: function() {
@@ -405,6 +411,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
     },
     /**
      * Method to set beacon as a Custom Link tracking beacon
+	 * @function
 	 * @param {{anchorObj: element,type: string,name: string,linkTrackVars:string,linkTrackEvents:string, _overwrite: boolean}} params
      */
     setTrackLink: function(params) {
@@ -425,6 +432,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
     },
     /**
      * Method to reset the Custom Link Tracking
+	 * @function
      */
     resetTrackLink: function() {
         this.setTrackLink({_set: false});
@@ -433,6 +441,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
     
     /**
      * Method to Add Omniture Plugins
+	 * @function
 	 * @private
      */
     addOmniPlugins: function() {
@@ -629,6 +638,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
 
     /**
      * Method to add an event to the s.event string
+	 * @function
 	 * @param {string} ev The event name
 	 * @param {string|number=} serializer The serializer used with event (optional).
 	 * @return {this}
@@ -651,6 +661,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
      
     /**
      * Method to remove an event to the s.event string
+	 * @function
 	 * @param {string} ev The event name
 	 * @return {this}
      */
@@ -672,6 +683,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
      * Method to add a product to the product string
 	 * Ex: addProduct(['c','n','q','t','event5=3434'], {type: 'incrementor', value: ['event4',5,345345]},{type: 'incrementor', value: ['event7',5,345345]})
 	 *
+	 * @function
 	 * @param {Array} prod Array representing the product parameters: category,name,quantity,total,incrementor,merchandising
 	 * @param {...Object} Object representing extra merchandising or incrementors
 	 * @return {this}
@@ -725,6 +737,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
      * Method to purchase a product to the s.product string using event purchase
 	 * Ex: purchaseProduct(['c','n','q','t','event5=3434'], {type: 'incrementor', value: ['event4',5,345345]},{type: 'incrementor', value: ['event7',5,345345]})
 	 *
+	 * @function
 	 * @param {Array} prod Array representing the product parameters: category,name,quantity,total,incrementor,merchandising
 	 * @param {...Object} Object representing extra merchandising or incrementors
 	 * @return {this}
@@ -737,6 +750,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
          
     /**
      * Method to to add an event incrementor
+	 * @function
 	 * @param {string} ev Name of event
 	 * @param {number} qty Quantity to increment by
 	 * @return {this}
@@ -750,6 +764,7 @@ _UT.omniAdapter = _UT.Adapter.extend({
 
     /**
      * Method to clean and remove empty references form dynamic variables 
+	 * @function
      * @param {string} type Type of variable to remove: eVar or prop
      * @param {number} max_num Size of given variable space within the s object (usually 75)
      */
@@ -794,6 +809,7 @@ _UT.addPlugins({
  
      /**
      * Call on video load
+	 * @function
      * @param {string} mediaName Name of the video
      * @param {number} mediaLength Length of the video in seconds
      * @param {string} mediaPlayerName Name of media player (ex: YouTube)
@@ -806,6 +822,7 @@ _UT.addPlugins({
     
      /**
      * Call on video resume from pause and slider release
+	 * @function
      * @param {string} mediaName Name of the video
      * @param {number} mediaOffset Time in seconds of current offset
      */
@@ -816,6 +833,7 @@ _UT.addPlugins({
     
      /**
      * Call on video pause and slider grab
+	 * @function
      * @param {string} mediaName Name of the video
      * @param {number} mediaOffset Time in seconds of current offset
      */
@@ -826,6 +844,7 @@ _UT.addPlugins({
     
      /**
      * Call on video end
+	 * @function
      * @param {string} mediaName Name of the video
      * @param {number} mediaOffset Time in seconds of current offset
      */

@@ -592,6 +592,7 @@ var _UT = (function () {
 
         /**
          * Method to fire beacon for Service
+		 * @function
          * @param {Object} vars Arguments used in logic
          */
         fire: function (vars) {
@@ -619,6 +620,7 @@ var _UT = (function () {
 
         /**
          * Method to return the value of a specific key from the given scope
+		 * @function
          * @param {string} k String representing the key as found in args
          * @param {Object} scope Represents the scope where the search variable should occur
          * @param {boolean=} useWindow if var not found in scope, then search in window
@@ -646,6 +648,7 @@ var _UT = (function () {
 
         /**
          * Method to parse the variables received using special keywords to select default values
+		 * @function
          * @param {Object} vars Variables to parse
          *            special properties:
          *                . __usePrevious: if should keep all the previous variables in memory
@@ -677,6 +680,7 @@ var _UT = (function () {
      * UT Container.
      * Class to group all Adapters and fire them using the same data
      * @extends {Class}
+	 * @class
      */
     _UT.Container = Class.extend({
 
@@ -718,6 +722,7 @@ var _UT = (function () {
 
         /**
          * Method to call a method of each Adapter
+		 * @function
          * @param {string} method Name of methods
          * @param {Object} props Properties of the call method
          *            . __include: array of adapter ids to include
@@ -760,6 +765,7 @@ var _UT = (function () {
      * UT Exception
      * Class to handle exceptions
      * @extends {Class}
+	 * @class
      */
     _UT.Exception = Class.extend({
         /**
@@ -773,6 +779,7 @@ var _UT = (function () {
 		
         /**
          * Method to push errors or warnings into the Object
+		 * @function
          * @param {Object} e The error Object.
          */
         push: function (e) {
