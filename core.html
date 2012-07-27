@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Core | _UT by Bell Business Markets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="assets/css/overrides.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+	
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+
+  <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./index.html">_UT</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+			
+			  <li class="dropdown">
+				<a href="./index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+				  <li><a href="./index.html#about">About</a></li>
+				  <li><a href="./index.html#">Getting Started</a></li>
+				</ul>
+			  </li>
+			  
+              <li class="">
+                <a href="./core.html">Core</a>
+              </li>
+			  <li class="dropdown">
+				<a href="./classes.html" class="dropdown-toggle" data-toggle="dropdown">Classes <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="./classes.html">Main</a></li>
+				  	<li><a href="./classes.html#exception">_UT.Exception</a></li>
+				  	<li><a href="./classes.html#adapter">_UT.Adapter</a></li>
+				  	<li><a href="./classes.html#container">_UT.Container</a></li>
+				</ul>
+			  </li>
+
+			  <li class="dropdown">
+				<a href="./classes.html" class="dropdown-toggle" data-toggle="dropdown">Adapters <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="./adapters.html">Main</a></li>
+				  	<li><a href="./adapters.html#howto">How to Create an Adapter</a></li>
+				  	<li><a href="./adapters.html#ga">_UT.gaAdapter</a></li>
+				  	<li><a href="./adapters.html#omni">_UT.omniAdapter</a></li>
+				</ul>
+           	  </li>
+
+              <li class="">
+                <a href="./example.html">Example</a>
+              </li>			  
+			  
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <h1>_UT Core</h1>
+        <p class="lead">Overview of the _UT namespace and available static methods and extensions.
+        <div class="subnav">
+          <ul class="nav nav-pills">
+			<li><a href="#extend">extend</a></li>
+			<li><a href="#addExtensions">addExtensions</a></li>
+			<li><a href="#addPlugins">addPlugins</a></li>
+			<li><a href="#each">each</a></li>
+			<li><a href="#copyArray">copyArray</a></li>
+			<li><a href="#copyObject">copyObject</a></li>
+			<li><a href="#globalEval">globalEval</a></li>
+			<li><a href="#trim">trim</a></li>
+			<li><a href="#merge">merge</a></li>
+			<li><a href="#grep">grep</a></li>
+			<li><a href="#map">map</a></li>
+          </ul>
+        </div>
+      </header>
+
+
+      <!-- Background
+      ================================================== -->
+      <section id="background">
+        <div class="page-header">
+          <h1>Background <small>Information on the core _UT</small></h1>
+        </div>
+      <div class="row">
+        <div class="span12">
+            <p>The core of the _UT library is based of <a href="http://www.jquery.com">jQuery</a>'s Core, with some unused functionality removed.</p>
+			<p>jQuery Core provides some very useful functions such as jQuery.extend, jQuery.each, jQuery.globalEval,etc... Instead of reinventing the wheel, we decided it would be advantageous to use the community approved & tested code from jQuery to fill the blanks required in the _UT library.</p>
+        </div>
+	  </div>
+    </section>
+
+
+
+    <!-- Modal
+    ================================================== -->
+    <section id="utilities">
+      <div class="page-header">
+        <h1>Utilities <small>List of core utility functions available from the _UT namespace</small></h1>
+      </div>
+      <div class="row">
+        <div class="span12">
+      <p>These utility functions are available to streamline the development of Adapters, plugins, processors and mappings by providing some commonly used functions.</p>
+	  <p>
+	  <div class="alert alert-info"><strong>Try them out!</strong> You can test these functions live using Firebug by simply clicking <span class="f12">F12</span>. The _UT library has been pre-loaded</div>
+
+		<section id="extend"></section>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Function</th>
+            <th>Description & Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.extend</code>
+				<section id="addExtensions"></section>
+			</td>
+            <td>
+                <p>Merge the contents of two or more objects together into the first object.</p>
+                <ol>
+                    <li><code>target</code> An object that will receive the new properties if additional objects are passed in or that will extend the jQuery namespace if it is the sole argument.</li>
+                    <li><code>object1</code> An object containing additional properties to merge in.</li>
+                    <li><code>objectN</code> Additional objects containing properties to merge in.</li>
+                </ol>
+                <br />
+                
+                <ol>
+                    <li><code>deep</code> If true, the merge becomes recursive (aka. deep copy).</li>
+                    <li><code>target</code> An object that will receive the new properties if additional objects are passed in or that will extend the jQuery namespace if it is the sole argument.</li>
+                    <li><code>object1</code> An object containing additional properties to merge in.</li>
+                    <li><code>objectN</code> Additional objects containing properties to merge in.</li>
+                </ol>
+                <code> @return {obj} </code> 
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.extend/" target="_blank">jQuery.extend</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+			
+				<pre class="prettyprint">			
+var a = { a:1, c:1};
+var b = { b:1, a:2};
+
+_UT.extend(a,b); // ==> a = { a:2, b:1, c:1}
+				</pre>
+			
+			</td>
+		 </tr>
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.addExtensions</code>
+				<section id="addPlugins"></section>
+			</td>
+            <td>
+                <p>Adds utility functions to the _UT namespace. Static functions.</p>
+                <ol>
+                    <li><code>obj</code> object where key is name of function and value is the new function</li>
+                </ol>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+			
+				<pre class="prettyprint">			
+_UT.addExtensions({
+	add: function(a,b) {
+		return a+b;
+	},
+	substract: function(a,b) {
+		return a-b;
+	}
+});
+
+var sum = _UT.add(5,3); // ==> 8
+var diff = _UT.substract(5,3); // ==> 2
+				</pre>
+			
+			</td>
+		 </tr>		  
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.addPlugins</code>
+				<section id="each"></section>
+			</td>
+            <td>
+                <p>Adds plugins to all or a specific Adapter Instances.</p>
+                <ol>
+                    <li><code>obj</code> object where key is name of function and value is the new function</li>
+                    <li><code>type</code> [optional] Type of Adapter. Ex: "omni" or "ga"</li>
+                </ol>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+			
+				<pre class="prettyprint">			
+_UT.addPlugins({
+		getSettings: function() {
+			return this.settings;	// all _UT Adapter instance have property map
+		}
+	}
+	,"ga" // limits to only gaAdapters / if not present, attaches function to all adapter instances
+);
+
+// assuming _ut_ga is a GA Adapter instance
+console.debug(_ut_ga.getSettings());	// ==> prints the settings to console for instantiated GA adapter
+				</pre>
+			
+			</td>
+		 </tr>	
+		  
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.each</code>
+				<section id="isFunction"></section>
+			</td>
+            <td>
+                <p>A generic iterator function, which can be used to seamlessly iterate over both objects and arrays. Arrays and array-like objects with a length property (such as a function's arguments object) are iterated by numeric index, from 0 to length-1. Other objects are iterated via their named properties.</p>
+                <ol>
+                    <li><code>collection</code> The object or array to iterate over.</li>
+                    <li><code>callback(indexInArray, valueOfElement)</code> The function that will be executed on every object.</li>
+                </ol>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.each/" target="_blank">jQuery.each</a> for more information.
+				</p>
+            </td>
+          </tr>
+		  <tr>
+		  	<td>Ex: 
+			
+				<pre class="prettyprint">			
+var sum = 0;
+_UT.each([1,2,5], function(){
+	sum = sum + this;
+});
+// ==> sum = 8
+
+var prod = 1;
+_UT.each({a: 2, b: 3, c: 4}, function(key,val){
+	if(key.search(/[ac]/gi) != -1) prod = prod * val;
+});
+// ==> prod = 8
+				</pre>
+			</td>
+		 </tr>
+          
+          <tr>
+            <td rowspan="2">
+				<code>_UT.isFunction</code>
+				<section id="isArray"></section>
+			</td>
+            <td>
+                <p>Determine if the argument passed is a Javascript function object.</p>
+                <ol>
+                <li><code>obj</code> Object to test whether or not it is a function.</li>
+                </ol>
+                <code>@return {boolean}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.isFunction/" target="_blank">jQuery.isFunction</a> for more information.
+				</p>
+            </td>
+          </tr>
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">			
+var myFunc = function(){return "test";};
+var myFuncNOT = "test";
+
+_UT.isFunction(myFunc); // ==> true
+_UT.isFunction(myFuncNOT); // ==> false
+				</pre>
+			</td>
+		 </tr>
+          
+          <tr>
+            <td rowspan="2">
+				<code>_UT.isArray</code>
+				<section id="copyArray"></section>
+			</td>
+            <td>
+                <p>Determine whether the argument is an array.</p>
+                <ol>
+                <li><code>obj</code> Object to test whether or not it is an array.</li>
+                </ol>
+                <code>@return {boolean}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.isArray/" target="_blank">jQuery.isArray</a> for more information.
+				</p>
+            </td>
+          </tr>  
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">			
+var myArr = [1,2,3];
+var myArrNOT = "test";
+
+_UT.isArray(myArr); // ==> true
+_UT.isArray(myArrNOT); // ==> false
+				</pre>
+			</td>
+		 </tr>
+		          
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.copyArray</code>
+				<section id="copyObject"></section>
+			</td>
+            <td>
+                <p>Function to create a deep copy of an Array.</p>
+                <ol>
+                <li><code>obj</code> Array to copy.</li>
+                </ol>
+                <code>@return {array}</code>
+            </td>
+          </tr>  
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">			
+var myArr = [1,2,3];
+var newArr = _UT.copyArray(myArr); // ==> [1,2,3]
+				</pre>
+			</td>
+		 </tr> 
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.copyObject</code>
+				<section id="isWindow"></section>
+			</td>
+            <td>
+                <p>Function to create a deep copy of an Object.</p>
+                <ol>
+                <li><code>obj</code> Object to copy.</li>
+                </ol>
+                <code>@return {obj}</code>
+            </td>
+          </tr>  
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+var obj = {g:4};		
+var myObj = {a:1,b:2,c:{d:3},f:obj};
+var newObj = _UT.copyObject(myObj); // ==> {a:1,b:2,c:{d:3}}
+obj.g = 5; // ==> g = {g:5}
+
+myObj; 	// ==> {a:1,b:2,c:{d:3},f:{g:5}}
+newObj; // ==> {a:1,b:2,c:{d:3},f:{g:4}}
+				</pre>
+			</td>
+		 </tr> 
+		 
+		 
+          <tr>
+            <td rowspan="2">
+				<code>_UT.isWindow</code>
+				<section id="isNumeric"></section>
+			</td>
+            <td>
+                <p>Determine whether the argument is a window.</p>
+                <ol>
+                <li><code>obj</code> Object to test whether or not it is a window.</li>
+                </ol>
+                <code>@return {boolean}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.isWindow/" target="_blank">jQuery.isWindow</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+_UT.isWindow(window); 	// ==> true
+_UT.isWindow({});		// ==> false
+				</pre>
+			</td>
+		 </tr> 
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.isNumeric</code>
+				<section id="type"></section>
+			</td>
+            <td>
+                <p>Determines whether its argument is a number.</p>
+                <ol>
+                <li><code>value</code> The value to be tested.</li>
+                </ol>
+                <code>@return {boolean}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.isNumeric/" target="_blank">jQuery.isNumeric</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+_UT.isNumeric("-10");  // ==> true
+_UT.isNumeric(16);     // ==> true
+_UT.isNumeric(0xFF);   // ==> true
+_UT.isNumeric("0xFF"); // ==> true
+_UT.isNumeric("8e5");  // ==> true (exponential notation string)
+_UT.isNumeric(3.1415); // ==> true
+_UT.isNumeric(+10);    // ==> true
+_UT.isNumeric(0144);   // ==> true (octal integer literal)
+_UT.isNumeric("");     // ==> false
+_UT.isNumeric({});     // ==> false (empty object)
+_UT.isNumeric(NaN);    // ==> false
+_UT.isNumeric(null);   // ==> false
+_UT.isNumeric(true);   // ==> false
+_UT.isNumeric(Infinity); // ==> false
+_UT.isNumeric(undefined); // ==> false
+				</pre>
+			</td>
+		 </tr> 
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.type</code>
+				<section id="isPlainObject"></section>
+			</td>
+            <td>
+                <p>Determine the internal JavaScript [[Class]] of an object.</p>
+                <ol>
+                <li><code>obj</code> Object to get the internal JavaScript [[Class]] of.</li>
+                </ol>
+                <code>@return {string}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.type/" target="_blank">jQuery.type</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+_UT.type(undefined) // ==> "undefined"
+_UT.type() // ==> "undefined"
+_UT.type(window.notDefined) // ==> "undefined"
+_UT.type(null) // ==> "null"
+
+_UT.type(true) // ==> "boolean"
+_UT.type(3) // ==> "number"
+_UT.type("test") // ==> "string"
+_UT.type(function(){}) // ==> "function"
+_UT.type([]) // ==> "array"
+_UT.type(new Date()) // ==> "date"
+_UT.type(/test/) // ==> "regexp"
+				</pre>
+			</td>
+		 </tr> 
+		  
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.isPlainObject</code>
+				<section id="isEmptyObject"></section>
+			</td>
+            <td>
+                <p>Check to see if an object is a plain object (created using "{}" or "new Object").</p>
+                <ol>
+                <li><code>obj</code> The object that will be checked to see if it's a plain object.</li>
+                </ol>
+                <code>@return {boolean}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.isPlainObject/" target="_blank">jQuery.isPlainObject</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+_UT.isPlainObject({}) // ==> true
+_UT.isPlainObject(new Object()) // ==> true
+_UT.isPlainObject("test") // ==> false
+				</pre>
+			</td>
+		 </tr> 
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.isEmptyObject</code>
+				<section id="noop"></section>
+			</td>
+            <td>
+                <p>Check to see if an object is empty (contains no properties).</p>
+                <ol>
+                <li><code>obj</code> The object that will be checked to see if it's empty.</li>
+                </ol>
+                <code>@return {boolean}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.isEmptyObject/" target="_blank">jQuery.isEmptyObject</a> for more information.
+				</p>
+            </td>
+          </tr>         
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+_UT.isEmptyObject({}) // ==> true
+_UT.isEmptyObject({ foo: "bar" }) // ==> false
+				</pre>
+			</td>
+		 </tr> 
+		 
+		 
+          <tr>
+            <td rowspan="2">
+				<code>_UT.noop</code>
+				<section id="globalEval"></section>
+			</td>
+            <td>
+                <p>An empty function.</p>
+                <ol>
+                </ol>
+                <code>@return {function}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.noop/" target="_blank">jQuery.noop</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+_UT.noop // ==> function(){}
+				</pre>
+			</td>
+		 </tr> 
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.globalEval</code>
+				<section id="trim"></section>
+			</td>
+            <td>
+                <p>Execute some JavaScript code globally.</p>
+                <ol>
+                     <li><code>code</code>The JavaScript code to execute.</li>
+                </ol>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.globalEval/" target="_blank">jQuery.globalEval</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+function test(){
+    _UT.globalEval("var newVar = true;")
+}
+test();
+// newVar === true
+				</pre>
+			</td>
+		 </tr> 
+
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.trim</code>
+				<section id="inArray"></section>
+			</td>
+            <td>
+                <p>Remove the whitespace from the beginning and end of a string.</p>
+                <ol>
+                     <li><code>str</code> The string to trim.</li>
+                </ol>
+                <code>@return {string}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.trim/" target="_blank">jQuery.trim</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+var str = "      lonelyword        ";
+_UT.trim(str); // ==> "lonelyword"
+				</pre>
+			</td>
+		 </tr> 
+
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.inArray</code>
+				<section id="merge"></section>
+			</td>
+            <td>
+                <p>Search for a specified value within an array and return its index (or -1 if not found).</p>
+                <ol>
+                     <li><code>value</code> The value to search for.</li>
+                     <li><code>array</code> An array through which to search.</li>
+                     <li><code>fromIndex</code> The index of the array at which to begin the search. The default is 0, which will search the whole array.</li>
+                </ol>
+                <code>@return {number}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.inArray/" target="_blank">jQuery.inArray</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+var myArr = [1,"is", "the","number"];
+
+_UT.inArray(1,myArr);	// ==> true
+_UT.inArray("is",myArr);	// ==> true
+_UT.inArray("the",myArr);	// ==> true
+_UT.inArray("loneliest",myArr);	// ==> false
+_UT.inArray("number",myArr);	// ==> true
+				</pre>
+			</td>
+		 </tr> 
+		 
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.merge</code>
+				<section id="grep"></section>
+			</td>
+            <td>
+                <p>Merge the contents of two arrays together into the first array.</p>
+                <ol>
+                     <li><code>first</code> The first array to merge, the elements of second added.</li>
+                     <li><code>second</code> The second array to merge into the first, unaltered.</li>
+                </ol>
+                <code>@return {array}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.merge/" target="_blank">jQuery.merge</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+var a = [1,1,3];
+var b = [5,8,13];
+
+_UT.merge(a,b); // ==> a = [1, 1, 3, 5, 8, 13]
+				</pre>
+			</td>
+		 </tr> 
+		 
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.grep</code>
+				<section id="map"></section>
+			</td>
+            <td>
+                <p>Finds the elements of an array which satisfy a filter function. The original array is not affected.</p>
+                <ol>
+                     <li><code>array</code> The array to search through.</li>
+                     <li><code>function(elementOfArray, indexInArray)</code> The function to process each item against. The first argument to the function is the item, and the second argument is the index. The function should return a Boolean value. this will be the global window object.</li>
+                     <li><code>invert</code> If "invert" is false, or not provided, then the function returns an array consisting of all elements for which "callback" returns true. If "invert" is true, then the function returns an array consisting of all elements for which "callback" returns false.</li>
+                </ol>
+                <code>@return {array}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.grep/" target="_blank">jQuery.grep</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+var arr = [ 1, 9, 3, 8, 6, 1, 5, 9, 4, 7, 3, 8, 6, 9, 1 ];
+
+arr = _UT.grep(arr, function(n, i){
+  return (n != 5 && i > 4);
+});
+// ==> arr = [1, 9, 4, 7, 3, 8, 6, 9, 1]
+
+arr = _UT.grep(arr, function (a) { return a != 9; });
+// ==> arr = [1, 4, 7, 3, 8, 6, 1]
+				</pre>
+			</td>
+		 </tr> 
+
+
+          <tr>
+             <td rowspan="2">
+				<code>_UT.map</code>
+				<section id="now"></section>
+			</td>
+            <td>
+                <p>Translate all items in an array or object to new array of items.</p>
+                <ol>
+                     <li><code>array</code> The Array to translate.</li>
+                     <li><code>callback(elementOfArray, indexInArray)</code> The function to process each item against. The first argument to the function is the array item, the second argument is the index in array The function can return any value. Within the function, this refers to the global (window) object.</li>
+                </ol>
+                
+                <ol>
+                     <li><code>arrayOrObject</code> The Array or Object to translate.</li>
+                     <li><code>callback( value, indexOrKey )</code> The function to process each item against. The first argument to the function is the value; the second argument is the index or key of the array or object property. The function can return any value to add to the array. A returned array will be flattened into the resulting array. Within the function, this refers to the global (window) object.</li>
+                </ol>                
+                
+                <code>@return {array}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.map/" target="_blank">jQuery.map</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+var arr = [1,2,3]
+
+arr = _UT.map(arr,function(val,i){return val*i});
+// ==> arr = [0, 2, 6]
+				</pre>
+			</td>
+		 </tr> 
+		 
+
+          <tr>
+            <td rowspan="2">
+				<code>_UT.now</code>
+			</td>
+            <td>
+                <p>Return a number representing the current time. (new Date).getTime()</p>
+                <ol>
+                </ol>
+                <code>@return {number}</code>
+				<br /><br>
+				<p>
+				View <a href="http://api.jquery.com/jQuery.now/" target="_blank">jQuery.now</a> for more information.
+				</p>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+_UT.now(); // ==> 1336174772484
+				</pre>
+			</td>
+		 </tr>  
+          
+		  
+		  <tr>
+            <td rowspan="2">
+				<code>_UT.initHTMLClass</code>
+			</td>
+            <td>
+                <p>Initiate a listener that call certain function for a certain Event of Elements, that has a certain Classname</p>
+                <ol>
+                </ol>
+                <code>@return {void}</code>
+				<br /><br>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+_UT.initHTMLClass('rss','click',s_track,{PageState: 'rss', __usePrevious: true});
+				</pre>
+			</td>
+		 </tr>  
+          
+		  
+		  <tr>
+            <td rowspan="2">
+				<code>_UT.removeDiacritics</code>
+			</td>
+            <td>
+                <p>Cleans up any accents and unwanted punctuation from a string</p>
+                <ol>
+                </ol>
+                <code>@return {String}</code>
+				<br /><br>
+            </td>
+          </tr> 
+		  <tr>
+		  	<td>Ex: 
+				<pre class="prettyprint">	
+var Str= _UT.removeDiacritics ("âh thôse s’tupid charäctérs!&*?%@");   // Str = "ah those stupid characters"
+				</pre>
+			</td>
+		 </tr>  
+        </tbody>
+      </table> 
+        </div>
+      </div>
+    </section>
+ 
+
+     <!-- Footer
+      ================================================== -->
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Built at <a href="http://www.bell.ca/enterprise/EntAbt_BellCie.page" target="_blank">Bell Business Markets</a> by <a href="hhttps://github.com/ddallala" target="_blank">@ddallala</a>. Maintained by the community via <a href="http://github.com/BellBusinessMarkets">GitHub</a>.</p>
+        <p>Code licensed under the <a href="http://www.gnu.org/licenses/lgpl.txt" target="_blank">LGPLG v3</a>. Documentation of the license found at <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank">GNU Lesser General Public License</a>.</p>
+        <p>Icons from <a href="http://glyphicons.com" target="_blank">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</p>
+		<p>Since I did not want to spend too much time on designing, this Documentation is completely "inspired" by <a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Bootstrap by Twitter</a></p>
+		<div id="sponsor">
+			<a id="lBell" href="http://www.bell.ca" target="_blank">Bell</a>
+			<!--<a id="lBellH" href="http://www.bell.ca" target="_blank">Bell</a>-->
+		</div>
+	
+      </footer>
+
+    </div><!-- /container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/application.js"></script>
+	
+	
+	<!-- _UT javascript -->
+	 <script src="assets/js/UT/UT.js"></script>
+	 <script src="assets/js/UT/gaAdapter.js"></script>
+	 <script src="assets/js/UT/settings/UT.extensions.js"></script>
+	 <script src="assets/js/UT/settings/common.js"></script>
+	 <script src="assets/js/UT/settings/gaSettings.js"></script>
+	 <script src="assets/js/UT/settings/container.js"></script>
+	 
+	 <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
+	 
+  </body>
+</html>
