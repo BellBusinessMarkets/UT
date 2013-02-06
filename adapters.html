@@ -261,7 +261,9 @@ _UT.xyzAdapter = _UT.Adapter.extend({
      */
     init: function (settings, processor, map) {
         try {
-
+            // calling the UT Adapter function to clean up
+            this._super(settings, processor, map);
+            
             // Load xyz Library
             if(typeof _xyz == "undefined")
                 (function() {
